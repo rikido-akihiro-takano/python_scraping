@@ -6,7 +6,8 @@ import urllib.parse
 import urllib.request
 
 # ターゲットurl
-url= 'https://www.oshiire.co.jp'
+# url= 'https://www.oshiire.co.jp'
+url= 'https://www.oshiire.co.jp/store/store_298.html'
 
 # ターゲットurlへGETリクエストのreturn
 html= requests.get(url)
@@ -29,6 +30,9 @@ for link in links:
     
     # 未分解
     link= link.get('href')
+    if link == None:
+        continue
+    print(link)
     # 分解済
     parse_link= urllib.parse.urlparse(link)
     
@@ -68,13 +72,13 @@ link_box_top= list(dict.fromkeys(link_box_top))
 link_box_top_escape= list(dict.fromkeys(link_box_top_escape))
 
 # ファイルをopen,「url=[」、「linksの中身（繰り返し）」、「\n]]、close（この記法ならclose省略可）という流れ
-with open('topPageUrl.py', 'a') as file:
+with open('testUrl.py', 'a') as file:
     file.write("urls=[")
     for link in link_box_top:  
         file.write("\n '%s'," % link)
     file.write("\n]")
 
-with open('topPageUrlEscape.py', 'a') as file:
+with open('testUrlEscape.py', 'a') as file:
     file.write("urls=[")
     for link in link_box_top_escape:  
         file.write("\n '%s'," % link)
