@@ -1,0 +1,835 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*--------------------------------------------------------------
+Reset
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s,
+samp, small, strike, strong, sub, sup,
+tt, var, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 0.9em;
+    overflow-y: scroll;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+article, 
+aside, 
+details, 
+figcaption, 
+figure, 
+footer, 
+header, 
+main, 
+nav, 
+section {
+    display: block;
+}
+
+ol, 
+ul {
+    list-style: outside none none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption, 
+th, 
+td {
+    font-weight: normal;
+    text-align: left;
+}
+
+blockquote:before, blockquote:after, 
+q:before, q:after {
+    content: "";
+}
+
+blockquote, 
+q {
+    quotes: "" "";
+}
+
+a:focus {
+    outline: 0 none;
+}
+
+a:hover, 
+a:active {
+    outline: 0 none;
+}
+
+a img {
+    border: 0 none;
+	max-width: 100%;
+	height:100%;
+	vertical-align:middle;
+}
+
+
+small{
+	font-size:70%;
+}
+
+.clearfix{
+	clear:both;
+}
+
+/*Resetここまで*/
+
+.wrap{
+	width:100%;
+	position:relative;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+.contents_wrap{
+	width:950px;
+	margin:0 auto;
+}
+
+.header{
+	padding:20px 0;
+}
+.logo{
+	float:left;
+	display:block;
+	height:40px;
+	width:auto;
+}
+.tel{
+	float:right;
+	display:block;
+	height:35px;
+	width:auto;
+	padding:3px 0 2px 0;
+}
+.logo img,
+.tel img{
+	display:block;
+	width:100%;
+}
+.main_v{
+	position:relative;
+	float:left;
+	width:100%;
+	background-color:#4ca9df;
+	background-image:url(../images/back.png);
+	background-repeat:repeat-x;
+	background-position:bottom;
+	height:445px;
+}
+.main_v_sp {
+	display:none;
+}
+h2{
+	background-color:#046dc3;
+	color:#ffffff;
+	font-size:25px;
+	font-weight:700;
+	width:100%;
+	margin:0 auto;
+	padding:10px 0;
+	text-align:center;
+}
+.main_v_contents{
+	position:relative;
+	width:1020px;
+	margin:0 auto;
+}
+.main_v_contents img{
+	position:absolute;
+}
+.main_v_logo{
+	left:0;
+	top:70px;
+}
+.main_v_truck{
+	right:0;
+	top:48px;
+}
+
+.payment_title{
+	position:relative;
+	margin:40px 0;
+}
+
+.payment_image{
+	position:relative;
+	float:left;
+	background-color:#046dc3;
+	width:335px;
+	height:190px;
+	margin-right:30px;
+	border-radius: 10px;        /* CSS3草案 */  
+    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 10px;   /* Firefox用 */
+}
+.payment_image img{
+	position: absolute;
+    width: 230px;
+    height: 120px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.payment_txt{
+	float:left;
+}
+
+.payment_txt ul{
+	margin-bottom:20px;
+}
+
+.payment_txt li{
+	font-size:14px;
+	line-height:25.2px;
+	text-indent: -18px;
+	padding-left: 20px;
+}
+
+.payment_txt li:before{
+	content: "● ";
+	color:#017fca;
+}
+.payment_txt li a{
+	text-decoration:underline;
+	color:#000;
+}
+
+.payment_txt p {
+	font-size:18px;
+}
+.payment_txt p:last-child{
+	margin-top:12px;
+}
+
+.pink_txt{
+	color:#ea5098;
+	font-weight:700;
+}
+.blue_back{
+	display:inline-block;
+	background-color:#017fca;
+	color:#ffffff;
+	font-size:16px;
+	font-weight:700;
+	width:115px;
+	height:40px;
+	padding-top:8px;
+	margin-right:5px;
+	text-align:center;
+	border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */
+}
+
+h3{
+	font-size:24px;
+	font-weight:700;
+	color:#ffffff;
+	height:50px;
+	padding:8px 0 0 20px;
+	border-radius: 10px;        /* CSS3草案 */  
+    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 10px;   /* Firefox用 */
+}
+
+.pink_title{
+	background-color:#ea5098;
+}
+.payment_box .pink_txt{
+	color:#ea5098;
+	font-weight:normal;
+}
+
+.green_title{
+	background-color:#8fc41e;
+}
+.green_txt{
+	color:#8fc41e;
+}
+.detail{
+	margin:20px 0 20px 10px;
+}
+
+.detail .line_feed{
+	margin-right:20px;
+}
+ .pink_line .line_feed:before{
+	 content:"● ";
+	 color:#ea5098;
+ }
+ .green_line .line_feed:before{
+	 content:"● ";
+	 color:#8fc41e;
+ }
+.payment_list{
+	margin-bottom:60px;
+}
+.truck_image{
+	float:left;
+	width:215px;
+	margin-right:15px;
+}
+.payment_list{
+	float:left;
+	width:720px;
+}
+.payment_list table{
+	height:150px;
+}
+
+.payment_list th,
+.payment_list td{
+	text-align:center;
+	vertical-align:middle;
+	font-weight:700;
+}
+
+.pink_cell{
+	background-color: #ea5098;
+	color:#ffffff;
+}
+.yellow_cell{
+	background-color:#fbf883;	
+}
+.pail_pink_cell{
+	background-color:#f4a7cb;
+}
+.pail_green_cell{
+}
+.yellow_cell td{
+	background-color:#fafccd;
+}
+.pail_pink_cell td{
+	background-color:#f5d3e3;
+}
+.green_cell{
+	background-color:#8fc41e;
+	color:#ffffff;
+}
+.pail_green_cell{
+	background-color:#c8e18e;	
+}
+
+.pail_green_cell td{
+	background-color:#e4f0c8;
+}
+
+.reservation{
+	clear:both;
+	position:relative;
+	padding-top:30px;
+	padding-bottom:50px;
+	text-align: center;
+}
+.reservation img{
+	display:block;
+	margin:0 auto;
+}
+
+/*.reservation a:hover{
+	opacity:0.5;
+}*/
+
+.footer_tel{
+	background-color:#eaf6fc;
+	padding:35px 0;
+	text-align:center;
+	font-weight:700;
+}
+
+.footer_tel img{
+	margin-bottom:10px;
+}
+
+.footer_tel .line_feed{
+	padding-left:10px;
+}
+.footer_logo{
+	position:relative;
+	background-color:#b9e0f6;
+}
+
+.footer_wrap{
+	width:602px;
+	margin:0 auto;
+	padding:30px 0 20px;
+}
+
+.footer_lbox{
+	float:left;
+	width:210px;
+	margin-right:30px;
+}
+.footer_lbox img {
+	height:auto;
+}
+.footer_rbox{
+	float:left;
+}
+
+.footer_rbox li{
+	font-size:12px;
+	line-height:140%;
+}
+
+.footer_rbox li:before{
+	content: "■ ";
+}
+
+.button {
+	display: inline-block;
+	width: 450px;
+	height: 60px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 60px;
+	outline: none;
+}
+.button::before,
+.button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button,
+.button::before,
+.button::after {
+}
+
+.button {
+	position: relative;
+	height: 64px;
+	border-radius: 4px;
+	color: #fff;
+	font-size:120%;
+	font-weight: 600;
+	line-height: 62px;
+	text-shadow: 1px 1px 3px #555; 
+	-moz-box-shadow: 1px 1px 3px #555;　/* Firefox用 */  
+	-webkit-box-shadow: 1px 1px 3px #555;　/* Safari,Google Chrome用 */ 
+}
+.button,
+.button:hover {
+	border-bottom: 4px solid #D96D00;
+	/*background-color: #f56778;*/
+	background-image: -webkit-linear-gradient(top, #FFD24D, #FF8000);
+	background-image: linear-gradient(to bottom, #FFD24D, #FF8000);
+	box-shadow: inset 1px 1px 0 #FFDFBF;
+}
+.button::before,
+.button::after {
+	bottom: -1px;
+	left: -1px;
+	width: 450px;
+	height: 60px;
+	border: 1px solid #D96D00;
+	border-bottom: 1px solid #D96D00;
+	border-radius: 4px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	-webkit-transition: none;
+	transition: none;
+}
+.button::before {
+	height: 60px;
+	bottom: -4px;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 1px 1px 0px #bfbfbf;
+}
+.button:hover {
+	/*background: #f56778;*/
+	background-image: -webkit-linear-gradient(top, #FF8000, #FFD24D);
+	background-image: linear-gradient(to bottom, #FF8000, #FFD24D);
+	color: #AB5600;
+	text-shadow: 0px 1px 0px #FFDFBF;
+}
+.button:active {
+	bottom: -4px;
+	margin-bottom: 4px;
+	border: none;
+	box-shadow: 1px 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, .3);
+}
+.button:active::before,
+.button:active::after {
+	border: none;
+	box-shadow: none;
+}
+
+@media screen and (max-width: 1020px) {
+.contents_wrap{
+	width:96%;
+	margin:0 2%;
+}
+
+.header {
+    padding:2% 0;
+}
+.main_v_contents{
+	width:96%;
+	padding:0 2%;
+	height:auto;
+}
+.main_v{
+	height:auto;
+	padding:2% 0;
+	background-size: contain;
+}
+.main_v_contents img{
+	position:relative;
+	float:left;
+	top:0;
+	}
+
+.main_v_logo{
+	top:2%;
+	width:45%;
+	margin-right:5%;
+}
+.main_v_truck{
+	width:50%;
+}
+
+.payment_title{
+	margin:5% 0;
+}
+
+.truck_image {
+    width: 24%;
+    margin-right:2%;
+}
+
+.payment_list{
+	width:74%;
+	margin-bottom:5%;
+}
+	
+}
+
+@media screen and (max-width: 900px) {
+.payment_image{
+	width:36%;
+	margin-right:2%;
+	padding:10%;
+}
+.payment_image img{
+	width:80%;
+	height:auto;
+}
+.payment_title .payment_txt{
+	width:60%;
+}
+.payment_txt p{
+	font-size:16px;
+}
+
+h3{
+	margin-bottom:2%;
+}
+
+.detail{
+	float:right;
+	width:74%;
+	margin:1.5% 0 0 0;
+}
+.detail .line_feed{
+	display:block;
+	margin-right:0;
+	padding-left:0;
+}
+.truck_image,
+.payment_list{
+	float:none;
+}
+
+.truck_image{
+	width:24%;
+}
+.truck_image img{
+	width:100%;
+}
+.payment_list{
+	width:100%;
+}
+}
+  
+@media screen and (max-width: 786px) {
+  .payment_image{
+	  width:25%;
+	  margin-right:5%;
+  }
+  .payment_title .payment_txt{
+	  width:70%;
+  }
+  .detail{
+	width:68%;
+}
+.truck_image{
+	width:30%;
+}
+
+
+}
+
+@media screen and (max-width: 750px) {
+	.payment_image {
+		float:none;
+    width: 50%;
+	margin:0 auto 2%;
+}
+
+.payment_title .payment_txt {
+	float:none;
+    width: 80%;
+	margin:0 auto 2%;
+ 
+}
+}
+
+@media screen and (max-width: 640px) {
+.tel,
+.logo {
+    float:none;
+	margin:2% auto;
+}
+
+.tel img{
+	width:300px;
+	height:auto;
+	margin:0 auto;
+}
+.contents_wrap {
+    width: 98%;
+    margin: 0 1%;
+}
+
+.payment_title .payment_txt {
+    width: 90%;
+}
+
+.payment_image {
+    margin: 0 auto 4%;
+}
+.payment_box{
+	font-size:90%;
+}
+.detail {
+    margin: 0.5% 0 0 0;
+}
+.payment_txt li{
+	font-size:90%;
+}
+.footer_tel .line_feed {
+	display:block;
+    padding-left: 0
+}	
+
+.footer_wrap{
+	text-align:center;
+	width:100%;
+	margin:0 auto;
+	padding:5% 0 4%;
+}
+
+.footer_lbox{
+	display:inline-block;
+	float:none;
+	margin-right:0;
+	margin-bottom:2%;
+}
+.footer_rbox{
+	float:none;
+}
+
+.footer_rbox ul{
+	display:block;
+	width:300px;
+	margin:0 auto;
+}
+
+.footer_rbox li {
+    font-size: 10px;
+    line-height: 130%;
+	text-align:left;
+}
+}
+
+@media screen and (max-width: 580px) {
+
+h2{
+    font-size: 20px;
+    padding: 2% 0;
+}
+
+h3{
+	font-size:20px;
+	padding:2% 0 2% 2%;
+}
+
+.payment_title .payment_txt {
+    width: 90%;
+}
+
+.truck_image {
+    width: 35%;
+}
+
+.detail {
+	width:63%;
+}
+
+.payment_txt p {
+    font-size: 14px;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+	
+.main_v {
+	display:none;
+}
+.main_v_sp {
+	display:block;
+	width:100%;
+}
+.main_v_sp img {
+	width:100%;
+}	
+.payment_title .payment_txt {
+width: 80%;
+}
+.payment_image{
+	height:120px;
+}
+h2 .line_feed{
+	display:block;
+}
+.blue_back {
+    display: block;
+	padding:1.5%;
+	margin-bottom:1.5%;
+	width:auto;
+	height:auto;
+	font-size:14px;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+h3{
+	padding:3% 0 3% 3%;
+	margin-bottom:3%;
+}
+.payment_box {
+    font-size: 85%;
+}
+.payment_list{
+	margin-top:2%;
+}
+
+
+
+.reservation {
+    padding-top: 3%;
+	padding-bottom: 10%;
+}
+
+.reservation img {
+	width:100%;
+	height:auto;   
+}
+
+.button {
+	display: inline-block;
+	width:90%;
+	height: 60px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 55px;
+	outline: none;
+}
+.button::before,
+.button::after {
+	bottom: -1px;
+	left: -1px;
+	width:100%;
+	height: 100%;
+	border: 1px solid #D96D00;
+	border-bottom: 1px solid #D96D00;
+	border-radius: 4px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.footer_tel span{
+	font-size:90%;
+}
+}
+
+@media screen and (max-width: 370px) {
+.payment_title .payment_txt {
+width: 100%;
+}
+
+.detail {
+	float:none;
+	width:100%;
+	margin-bottom:3%;
+}
+.detail .line_feed {
+    display:inline-block;
+    margin-right:2%;
+}
+.detail .green_txt,
+.detail .pink_txt{
+	margin-right:3%;
+}
+.truck_image {
+    width: 50%;
+	margin:3% auto;
+}
+}
+
+

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+/** div#main */
+/**************************************/
+div#main div {
+	position:        relative;
+	top:             0px;
+	left:            0px;
+	margin:          0 0 30px 0;
+}
+
+div#main div p {
+	position:        absolute;
+	top:             50px;
+	left:            30px;
+	font-size:       30px;
+	font-weight:     bold;
+	color:           #006546;
+}
+
+div#main div p span.small {
+	font-size:       16px;
+	margin:          10px 0 0 0;
+	display:         block;
+}

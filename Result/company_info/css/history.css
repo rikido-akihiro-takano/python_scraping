@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+
+/** table.list */
+/**************************************/
+table.list {
+	margin:          0;
+}
+
+table.list th {
+	width:           140px;
+}

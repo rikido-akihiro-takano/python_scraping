@@ -1,0 +1,51 @@
+#para3 ul li {
+	padding:7px;
+}
+
+#para3 ul li div {
+	background:#f3efe5;
+	border:3px solid #999999;
+	position:relative;
+}
+
+#para3 ul li div img.icon {
+	position:absolute;
+}
+
+#para3 ul li div img.icon {
+	top:-3px;
+	left:-3px;
+	z-index:2;
+}
+
+#para3 ul li div p {
+	font-weight:bold;
+	font-size:13px;
+	line-height:1.5;
+	color:#d40e0e;
+	margin:8px;
+}
+
+.disc{
+	list-style: disc;
+	padding:0 0 0 20px; 
+}
+
+.table thead tr th{
+	background: #077150;
+	color: #ffffff;
+	border-bottom: none;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.table th{
+	padding: 6px 10px;
+	background: #d7d7d7;
+}
+.table td{
+	background: #f3efe5;
+	border-left: 2px solid #ffffff;
+	padding: 8px 10px;
+	}}

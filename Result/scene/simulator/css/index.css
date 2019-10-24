@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+/**  */
+/**************************************/
+
+h1.head_over_img,
+h1 em.head_line_green,
+div#contents {
+	width:        960px !important;
+}
+
+h1.head_over_img {
+	background:   url(../../../shared/img/utility/head_over_img_l.gif) no-repeat;
+}
+
+div#flash-area {
+	margin:       0 auto;
+	width:        860px;
+	height:       580px;
+}
+
+div.hr {
+	background:   url(../../../shared/img/utility/line_circle_gray_white_w_l.gif) no-repeat 50% 0;
+	margin-top:   40px;
+}

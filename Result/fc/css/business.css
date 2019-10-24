@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+
+/** head */
+/**************************************/
+
+div.service {
+	width:           345px;
+	height:          390px;
+	margin:          0 0 10px 0;
+	position:        relative;
+}
+
+div#trunk  { background: url(../img/business_trunk_bg.gif); }
+div#rental { background: url(../img/business_rental_bg.gif); }
+
+div.service h2,
+div.service p,
+div.service dl {
+	position:        absolute;
+}
+
+div.service h2,
+div.service p {
+	left:            15px;
+}
+
+div.service h2 {
+	font-size:       18px;
+	color:           #d6002b;
+	top:             20px;
+}
+
+div.service p {
+	width:           180px;
+	top:             55px;
+}
+
+div.service dl {
+	top:             299px;
+	left:            10px;
+}
+
+div.service dl dd {
+	width:           103px;
+	margin:          0 8px 0 0;
+	float:           left;
+}
+
+/** clearfix */
+/**************************************/
+div#para3 ul:after
+{
+	content:         ".";
+	height:          0;
+	clear:           both;
+	visibility:      hidden;
+	display:         block;
+}
+
+div#para3 ul
+{
+	display:         inline-block;
+}
+
+/*\*/
+* html div#para3 ul
+{
+	height:          1%;
+}
+
+div#para3 ul
+{
+	display:         block;
+}

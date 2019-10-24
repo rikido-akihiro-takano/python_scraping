@@ -1,0 +1,1140 @@
+@charset "utf-8";
+/* common 
+*****************************************/
+body {
+	color: #333;
+	line-height: 1.7;
+	font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Osaka, sans-serif;
+	font-size: 82%;
+}
+body.on {
+	overflow: hidden;
+	height: 100%;
+}
+.pcNone {
+	display: none;
+}
+.en {
+	font-family: 'Poppins', sans-serif;
+	line-height: 0.9;
+}
+.wf-sawarabimincho {
+	font-family: "Sawarabi Mincho";
+}
+.wf-roundedmplus1c {
+	font-family: "Rounded Mplus 1c";
+}
+.tcenter {
+	text-align: center;
+}
+.tleft {
+	text-align: left;
+}
+.tright {
+	text-align: right;
+}
+.tbold {
+	font-weight: bold;
+}
+.tlarge {
+	font-size:130%;
+	font-weight: bold;
+}
+.pbtm {
+	margin-bottom: 2%;
+}
+.clearfix{
+	clear: both;
+}
+
+/* 下層common */
+.pcnav {
+	position: inherit;
+	z-index: 200;
+	width: 250px;
+	height: 100vh;
+	background: rgb(0,0,0);
+	right: 0;
+	backface-visibility: hidden;
+	z-index: 10;
+}
+.Logo {
+	width: 100%;
+	background: #fff;
+	position: relative;
+	padding: 15% 0;
+}
+.Logo img {
+	width: 60%;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pcnav ul {
+	width: 100%;
+	margin: 10% 0;
+}
+.pcnav li {
+	text-align: left;
+}
+.pcnav li {
+	list-style: none;
+	font-size: 90%;
+	line-height: 20px;
+}
+.pcnav li a {
+	display: block;
+	padding: 7% 7%;
+	color: rgba(255,255,255, 0.5);
+	line-height: 20px;
+	-webkit-transition: all 1s ease;
+	    -moz-transition: all 1s ease;
+	    -o-transition: all 1s ease;
+}
+.pcnav li a:hover {
+	color: rgba(255,255,255, 1.0);
+	background-color: #333;
+}
+.active {
+	font-weight: 700;
+	color: rgba(255,255,255, 1.0);
+	padding: 7% 7%;
+}
+.main-wrapper {
+	left: 0;
+	width: calc(100% - 250px);
+	background: #fff;
+}
+
+/* plink 
+*****************************************/
+.plink {
+	padding: 10px;
+	font-size: 12px;
+}
+.plink a {
+	text-decoration: underline;
+	color: #999;
+}
+.plink li {
+	display: inline;
+}
+
+/* link 
+*****************************************/
+a:link, a:visited {
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+a:focus {
+	overflow: hidden;
+}
+/* Clearfix
+*****************************************/
+.wrap:before, .wrap:after, #socialBtn:before, #socialBtn:after, #headNavi:before, #headNavi:after, #globalNav:before, #globalNav:after, #globalNav ul:before, #globalNav ul:after, #footNavi ul:before, #footNavi ul:after, #contents:before, #contents:after, .bnrList01:before, .bnrList01:after, .list:before, .list:after, .tabList01:before, .tabList01:after, .processArea:before, .processArea:after, .topSection04 .inner:before, .topSection04 .inner:after, .container:before, .container:after, .searchListHead:before, .searchListHead:after, .searchList:before, .searchList:after, .wrapSearchList01:before, .wrapSearchList01:after, .searchList .col03:before, .searchList .col03:after, .accordionList:before, .accordionList:after, .list02:before, .list02:after, .list03:before, .list03:after, .list04:before, .list04:after, .list06:before, .list06:after, .list08:before, .list08:after, .list09:before, .list09:after, .list10:before, .list10:after, .list11:before, .list11:after, .list12:before, .list12:after, .list16:before, .list16:after, .list17:before, .list17:after, .list17 dd:before, .list17 dd:after, .list18:before, .list18:after, .list19:before, .list19:after, .list20:before, .list20:after, .list22:before, .list22:after, .list23:before, .list23:after, .list26:before, .list26:after, .list27:before, .list27:after, .childList01:before, .childList01:after, .contactCol02 .list:before, .contactCol02 .list:after, .sliderNavi .navigation ul:before, .sliderNavi .navigation ul:after, #gallery .slider ul:before, #gallery .slider ul:after, .sliderCaptionWrapInner:before, .sliderCaptionWrapInner:after, .localNavi01:before, .localNavi01:after, .localNavi02 ul:before, .localNavi02 ul:after, .column01:before, .column01:after, .slideArea02:before, .slideArea02:after, .slideArea02 .thumbnailImages:before, .slideArea02 .thumbnailImages:after, .contactWrap01:before, .contactWrap01:after {
+	content: " ";
+	display: table;
+}
+.wrap:after, #headNavi:after, #socialBtn:after, #globalNav:after, #globalNav ul:after, #footNavi ul:after, #contents:after, .bnrList01:after, .list:after, .tabList01:after, .processArea:after, .topSection04 .inner:after, .container:after, .searchList:after, .searchListHead:after, .wrapSearchList01:after, .searchList .col03:after, .accordionList:after, .list02:after, .list03:after, .list04:after, .list06:after, .list08:after, .list09:after, .list10:after, .list11:after, .list12:after, .list16:after, .list17:after, .list17 dd:after, .list18:after, .list19:after, .list20:after, .list22:after, .list23:after, .list26:after, .list27:after, .childList01:after, .contactCol02 .list:after, .sliderNavi .navigation ul:after, #gallery .slider ul:after, .sliderCaptionWrapInner:after, .localNavi01:after, .localNavi02 ul:after, .column01:after, .slideArea02:after, .slideArea02 .thumbnailImages:after, .contactWrap01:after {
+	clear: both;
+}
+/* 
+
+/* -------------------------
+	Reset
+-------------------------- */
+
+html {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: none;
+}
+img {
+	-ms-interpolation-mode: bicubic;
+}
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+a:focus {
+	/*\*/
+	overflow: hidden;/**/
+}
+/* -------------------------
+	Basics
+-------------------------- */
+
+body {
+	height: 100%;
+	font-size: 100%;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;
+	font-weight: normal;
+	line-height: 1.6;
+}
+body.existing {
+	line-height: 1.7;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", Osaka, sans-serif;
+	font-size: 82%;
+	text-align: left;
+}
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+body.existing *, body.existing *::before, body.existing *::after {
+	box-sizing: content-box;
+}
+a:link, a:visited {
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: none;
+}
+body.existing a:link, body.existing a:visited {
+	color: #d5aa17;
+}
+body.existing a:hover, body.existing a:active {
+	color: #d5aa17;
+	text-decoration: underline;
+}
+#contents img {
+	vertical-align: top;
+}
+.alert {
+	color: #c44818;
+}
+
+/* -------------------------
+	header
+-------------------------- */
+
+/* container */
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+body.existing .header {
+	font-size: 122%;
+	font-family: "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;
+	font-weight: normal;
+	line-height: 1.6;
+	text-align: center;
+}
+.headerBox {
+}
+.headerBox + .headerBox {
+	position: relative;
+	background-color: transparent;
+	height: 80px;
+	width: 90%;
+	margin: 0 auto;
+}
+/* logo */
+.headerLogo {
+	position: absolute;
+	left: 10px;
+	bottom: 6px;
+}
+.headerLogo img {
+	width: 224px;
+	height: auto;
+}
+/* global navigation */
+
+.globalNav {
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+.globalNav li {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 40px;
+	padding: 0 0 12px 0;
+}
+.globalNav li.onlySP {
+	display: none;
+}
+.globalNav li a {
+	color: #fff !important;
+	font-size: 88%;
+	text-decoration: none !important;
+}
+.globalNav li a:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 2px;
+	left: 50%;
+	bottom: 0;
+	background-color: #fff;
+	transition: width .2s ease-out, left .2s ease-out;
+}
+.globalNav li a:hover:after, .globalNav li a:active:after, .globalNav li.current a:after {
+	left: 0;
+	width: 100%;
+	text-decoration: none !important;
+}
+
+/* -------------------------
+	footer
+-------------------------- */
+.footer {
+	position: relative;
+	background-color: #000;
+	clear: both;
+}
+.footerBox {
+	box-sizing: border-box !important;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1%;
+	height: 65px;
+}
+.footerLogo img {
+	float: left;
+	height: auto;
+	margin: 0 2%;
+	width: 93px;
+}
+.footerCopyright {
+	padding: 4px 0 0 0;
+	color: rgba(255, 255, 255, 1.0);
+	font-size: 69%;
+	font-family: Verdana, sans-serif;
+}
+.footerCopyright span {
+	white-space: nowrap;
+}
+
+/* -------------------------
+	slide navigation
+-------------------------- */
+/* container */
+
+#overflowContainer {
+	width: 100%;
+	overflow: hidden;
+	background: #000;
+}
+#globalContainer {
+	position: relative;
+	overflow: hidden;
+	-webkit-transition: -webkit-transform .36s;
+	transition: transform .36s;
+}
+#bodyContainer {
+	position: relative;
+	float: left;
+	z-index: 1;
+}
+#bodyCover {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 98%, rgba(0,0,0,.2) 100%);
+	background: linear-gradient(to right, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 98%, rgba(0,0,0,.2) 100%);
+	z-index: 2;
+}
+#bodyCover:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+#bodyCover.open {
+	display: block;
+	animation: anim-fadeIn .3s ease-out 0s forwards;
+	-webkit-animation: anim-fadeIn .3s ease-out 0s forwards;
+}
+ @keyframes anim-fadeIn {
+ 0% {
+opacity: 0;
+}
+ 100% {
+opacity: 1;
+}
+}
+@-webkit-keyframes anim-fadeIn {
+ 0% {
+opacity: 0;
+}
+ 100% {
+opacity: 1;
+}
+}
+#bodyCover.close {
+	animation: anim-fadeOut .3s ease-out 0s forwards;
+	-webkit-animation: anim-fadeOut .3s ease-out 0s forwards;
+}
+ @keyframes anim-fadeOut {
+ 0% {
+opacity: 1;
+}
+ 100% {
+opacity: 0;
+}
+}
+@-webkit-keyframes anim-fadeOut {
+ 0% {
+opacity: 1;
+}
+ 100% {
+opacity: 0;
+}
+}
+#slideContainer {
+	display: none;
+	position: relative;
+	float: left;
+	background-color: #000;
+	z-index: 3;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+/* hamburger */
+.hamburger {
+	display: none !important;
+}
+/* navigation */
+#slideNav li a {
+	display: block;
+	position: relative;
+	padding: 20px 40px 20px 20px;
+	border-bottom: 1px solid #393c47;
+	color: #fff;
+	font-size: 88%;
+	line-height: 1.3;
+	text-align: left;
+}
+#slideNav li a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	width: 24px;
+	height: 24px;
+	margin-top: -12px;
+}
+#slideNav li a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin-top: -4px;
+	border-top: 2px solid #999;
+	border-right: 2px solid #999;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#slideNav li a:hover, #slideNav li a:active {
+	color: #fff !important;
+}
+#slideNav li a.noline {
+	display: block;
+	position: relative;
+	padding: 20px 40px 20px 20px;
+	border-bottom: none;
+	color: #fff;
+	font-size: 88%;
+	line-height: 1.3;
+	text-align: left;
+}
+#slideNav li a.noline:after {
+	border-top: none;
+	border-right: none;
+}
+/* -------------------------
+	pjax
+-------------------------- */
+
+#pjaxHead {
+	height: auto;
+	overflow: visible;
+}
+#pjaxHead.pjaxLoading {
+	overflow: hidden;
+}
+#pjaxHead.pjaxLoaded {
+	height: 540px;
+}
+#pjaxBody {
+	display: none;
+	background-color: #fff;
+}
+.lineupHeading + #pjaxBody {
+	display: block;
+}
+#pjaxLoader {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin: -16px 0 0 -16px;
+	width: 32px;
+	height: 32px;
+	z-index: 1;
+}
+#pjaxLoader img {
+	width: 32px;
+	height: 32px;
+}
+/* object-fit image */
+img.fit {
+	display: none;
+}
+/* button */
+.doubleCircleButton {
+	position: relative;
+	width: 50px;
+	height: 50px;
+}
+.doubleCircleButton a {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border-right: solid 3px #fff;
+	border-bottom: solid 3px #fff;
+	left: 11px;
+	top: 7px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	text-indent: -9999px;
+}
+/* 点滅 */
+.blinking {
+	-webkit-animation: blink 1.2s ease-in-out infinite alternate;
+	-moz-animation: blink 1.2s ease-in-out infinite alternate;
+	animation: blink 1.2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink {
+ 0% {
+opacity:0.3;
+}
+ 100% {
+opacity:1;
+}
+}
+@-moz-keyframes blink {
+ 0% {
+opacity:0.3;
+}
+ 100% {
+opacity:1;
+}
+}
+@keyframes blink {
+ 0% {
+opacity:0.3;
+}
+ 100% {
+opacity:1;
+}
+}
+
+/* -------------------------
+	top page
+-------------------------- */
+
+/* common */
+.stageContainer {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+.stageNumber {
+	margin: 0 0 40px;
+	text-align: left;
+}
+.stageNumber:before {
+	content: "";
+	display: block;
+	width: 50px;
+	height: 4px;
+	margin: 0 0 30px;
+	background-color: #aa8d68;
+}
+.stageContainer h2 {
+	margin: 0 0 0 0;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 5%;
+}
+.nom_tit {
+	font-size: 300%;
+}
+.en_tit {
+	font-size: 600%;
+	letter-spacing: 10px;
+	font-weight: bold;
+}
+.stageContainer .lead {
+	margin-bottom: 5%;
+}
+/* stage navigation */
+#topStageNav {
+	position: fixed;
+	top: 50%;
+	right: 50px;
+	width: 23px;
+	height: 155px;
+	margin-top: -77.5px;
+	z-index: 20;
+}
+#topStageNav li {
+	position: relative;
+	padding-bottom: 10px;
+}
+#topStageNav li:last-child {
+	padding-bottom: 0;
+}
+#topStageNav li:last-child:after {
+	content: none;
+}
+#topStageNav a {
+	display: block;
+	position: relative;
+	width: 23px;
+	height: 23px;
+}
+#topStageNav span {
+	display: block;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 13px;
+	height: 13px;
+	border-radius: 6.5px;
+	background-color: rgba(255,255,255,.6);
+	text-indent: -9999px;
+	overflow: hidden;
+	transition: background-color .2s linear;
+}
+#topStageNav a:hover span, #topStageNav a:active span, #topStageNav a.current span {
+	background-color: #E71C63;
+}
+#topStageNav a.current {
+	border-color: rgba(255,255,255,.6);
+}
+#topStageNav a.current:before, #topStageNav a.current:after {
+	content: none;
+}
+.pjaxLoading #topStageNav {
+	display: none;
+}
+/* mainvisual */
+.topMainvisual {
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	width: 100%;
+	-webkit-transform: translateY(-32%);
+	transform: translateY(-32%);
+}
+.topMainvisualText img {
+	display: block;
+	width: 280px;
+	height: auto;
+	margin: 0 0 3% 0;
+}
+.topMainvisualButton {
+	position: relative;
+	width: 100%;
+	margin: 15px auto 0;
+	padding: 100px 0 0;
+}
+.topMainvisual .borderButton {
+	margin: 0 auto;
+}
+.topMainvisual .doubleCircleButton {
+	margin: 34px auto 0;
+}
+#topMainvisualImage {
+	display: none;
+}
+/* toppiolife */
+.toppiolife .head {
+	position: absolute;
+	top: 35%;
+	left: 5%;
+	z-index: 2;
+}
+.toppiolife ul {
+	position: absolute;
+	top: 50%;
+	right: 12%;
+	width: 42%;
+	max-width: 550px;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.toppiolife li {
+	float: left;
+	width: 50%;
+	line-height: 0;
+}
+.toppiolife li img {
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+body {
+	word-break: break-all;
+}
+body.existing .mainImages .bnrList01, body.existing .mainImages .bnrList01 li, body.existing .topSection01 .inner, body.existing .topSection02 .inner, body.existing .topSection03 .inner, body.existing .topSection04 .inner, body.existing .topSection04 .col01, body.existing .processArea .col01, body.existing .section02, body.existing .heading01, body.existing .heading04, body.existing .aside01, body.existing .main01, body.existing .searchListHead, body.existing .searchListHead .col01, body.existing .searchListHead .col02, body.existing .searchListHead .col03, body.existing .searchListHead .col04, body.existing .searchListHead .col05, body.existing .searchListHead .col06, body.existing .searchListHead .col07, body.existing .searchListHead .col08, body.existing .searchList, body.existing .searchList .col01, body.existing .searchList .col02, body.existing .searchList .col03, body.existing .searchList .col04, body.existing .searchList .col05, body.existing .searchList .col06, body.existing .searchList .col07, body.existing .searchList .col08, body.existing .searchList .col09, body.existing .searchList .col02 .text, body.existing .searchList .col03 .img, body.existing .searchList .col03 .img, body.existing .searchArea01 .inner, body.existing .accordionList li, body.existing .hgroup02, body.existing .hgroup03, body.existing .list02 dt, body.existing .list02 dd, body.existing .list03 dt, body.existing .list03 dd, body.existing .list03 dt span, body.existing .list03 dd p, body.existing .list03 dd.type01 p, body.existing .list04 li, body.existing .list06 dt, body.existing .list06 dd, body.existing .list08 .text, body.existing .list09 li, body.existing .list12 li, body.existing .list12 li a, body.existing .list17 dd, body.existing .list17 dd .text, body.existing .list18 li, body.existing .list19 li, body.existing .list20 li, body.existing .list22 li, body.existing .list26 li, body.existing .frameArea02, body.existing .frameArea02 .text01, body.existing .column01, body.existing .column02, body.existing .column03, body.existing .column04, body.existing .column07, body.existing .imgArea01 .img02, body.existing .window03, body.existing .window04, body.existing .slideArea02 .mainImage, body.existing .slideArea02 .thumbnailImages {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* -------------------------
+	header
+-------------------------- */
+/* container */
+.header:after {
+	width: 600px;
+}
+.headerBox + .headerBox {
+	width: 100%;
+}
+/* top navigation */
+.topNav {
+	width: 100%;
+}
+/* breadcrumbs */
+.breadcrumbs {
+	left: 40px;
+	width: auto;
+	margin-left: 0;
+}
+/* -------------------------
+	footer
+-------------------------- */
+.footerBox {
+	width: 100%;
+}
+/* -------------------------
+	top page
+-------------------------- */
+/* toppiolife */
+.toppiolife ul {
+	min-width: 350px;
+	right: 5%;
+}
+} 
+
+@media screen and (min-width: 768px) {
+.footerPagetop {
+	position: absolute;
+	width: 65px;
+	height: 65px;
+	bottom: 0;
+	right: 0;
+}
+.footerPagetop a {
+	display: block;
+	width: 65px;
+	height: 65px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background-color: #E71C63;
+}
+.footerPagetop a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 28px;
+	top: 28px;
+	width: 11px;
+	height: 11px;
+	border-left: solid 3px #000;
+	border-top: solid 3px #000;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+}
+
+
+@media screen and (max-width: 767px) {
+body.existing #globalNav li, body.existing #globalNav li a, body.existing #footNavi ul li, body.existing #gallery .sliderCaptionWrap, body.existing #gallery .sliderCaption, body.existing .mainImages .imgBox, body.existing .mainImages .bnrList01, body.existing .mainImages .bnrList01 li, body.existing .topSection01 .title, body.existing .topSection01 .list li, body.existing .topSection02 .title, body.existing .topSection03 .title, body.existing .topSection04 .col01 .list .day, body.existing .topSection04 .col01 .list .text, body.existing .tabList01 li, body.existing .tabArea01, body.existing .processArea .col01, body.existing .processArea .col02, body.existing .section04 .button01, body.existing .section11 .title01, body.existing .section11 .title02, body.existing .section11 .title03, body.existing .section11 .title04, body.existing .section11 .title05, body.existing .heading01, body.existing .heading04, body.existing .aside01, body.existing .searchList, body.existing .searchList .col02, body.existing .searchList .col03, body.existing .searchList .col03 .img, body.existing .searchList .col03 .img.type15, body.existing .searchList .col04, body.existing .searchList .col08 .text02, body.existing .searchList .col09, body.existing .list03 dt, body.existing .list03 dd, body.existing .list03 dd.type01, body.existing .list03 dd.type01 p, body.existing .list04 li, body.existing .list06 dt, body.existing .list06 dd, body.existing .list08 .day, body.existing .list08 .text, body.existing .list09 li, body.existing .list10 .place, body.existing .list10 .address, body.existing .list11 li, body.existing .list12 li a, body.existing .list17 dd .text, body.existing .list20 li, body.existing .list21 li, body.existing .list21 .button01 a, body.existing .list26 li, body.existing .accordionList li, body.existing .hgroup02, body.existing .hgroup03, body.existing .frameArea01, body.existing .frameArea03 .button01, body.existing .column01, body.existing .column02, body.existing .contactCol03 .button01, body.existing .localNavi01 li, body.existing .imgArea01 .img02, body.existing .window01, body.existing .window06, body.existing .window03, body.existing .window04 {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	width: 100%;
+	font-family: "HraKakuProN-W6", "HelveticaNeue";
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+}
+.spNone {
+	display: none !important;
+}
+.pcNone {
+	display: block !important;
+}
+
+/* -------------------------
+	Basics
+-------------------------- */
+body.existing {
+	font-family: "HraKakuProN-W6", "HelveticaNeue";
+	line-height: 1.5;
+}
+img {
+	width: 100%;
+}
+.main-wrapper {
+	float: none;
+	width: 100%;
+}
+
+/* -------------------------
+	header
+-------------------------- */
+/* container */
+.header {
+	position: static;
+	background-color: #fff;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+}
+.header:after {
+	content: none;
+}
+.headerBox {
+	float: right;
+	background-color: transparent;
+	height: 60px;
+}
+.headerBox + .headerBox {
+	float: left;
+	height: 60px;
+	width: auto;
+	margin: 0;
+}
+
+/* top navigation */
+
+.topNav {
+	width: auto;
+	padding: 0;
+}
+.topNav li {
+	margin: 0;
+}
+.topNav > li > a {
+	display: none;
+}
+.topNavSns {
+	padding-top: 18px;
+}
+.topNavSns li {
+	margin: 0 12px 0 0;
+}
+.topNavSns li:last-child {
+	margin: 0 12px 0 0;
+}
+.topNavSns li img {
+	height: 24px;
+}
+/* logo */
+.headerLogo {
+	left: 0;
+	bottom: 9px;
+	line-height: 0;
+}
+.headerLogo a {
+	display: inline-block;
+	padding: 5px 0 5px 10px;
+}
+.headerLogo img {
+	height: 32px;
+	width: auto;
+}
+/* global navigation */
+.globalNav {
+	display: none;
+}
+/* breadcrumbs */
+.breadcrumbs {
+	top: 80px;
+	left: 15px;
+	width: auto;
+	margin-left: 0;
+}
+.breadcrumbs li:after {
+	padding: 0 3px 0 7px;
+}
+.breadcrumbs li:last-child:after {
+	content: none;
+}
+/* -------------------------
+	footer
+-------------------------- */
+.footerBox {
+	width: 100%;
+	padding: 0 0 3% 0;
+	height: auto;
+}
+.footerLogo {
+	position: static;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 0;
+}
+.footerLogo img {
+	float: none;
+	width: 93px;
+	margin-bottom: 2%;
+}
+.footerCopyright {
+	padding: 0 15px;
+	font-size: 55%;
+	line-height: 1.3;
+	text-align: center;
+}
+.footerPagetop {
+	width: 100%;
+	background: rgba(76,76,76,0.5);
+	position: relative;
+	margin-bottom: 3%;
+	margin-top: 0;
+	height: 50px;
+}
+.footerPagetop a {
+	width: 100%;
+	display: block;
+	height: 50px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background-color: rgba(76,76,76,0.1);
+}
+.footerPagetop a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 50%;
+	top: 23px;
+	width: 11px;
+	height: 11px;
+	border-left: solid 3px #000;
+	border-top: solid 3px #000;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+/* -------------------------
+	slide navigation
+-------------------------- */
+/* container */
+#slideContainer {
+	display: block;
+}
+/* hamburger */
+.hamburger {
+	display: inline-block !important;
+	padding: 18px 15px 0 0;
+}
+.hamburgerContainer {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	overflow: visible;
+	opacity: .4;
+	cursor: pointer;
+	transition: opacity .2s linear;
+}
+.hamburgerContainer:hover, .hamburgerContainer.open {
+	opacity: 1;
+}
+.hamburgerContainer span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #333;
+	transition: transform .2s linear, opacity .2s linear;
+}
+.hamburgerContainer span:nth-child(1) {
+	top: 0;
+}
+.hamburgerContainer span:nth-child(2) {
+	top: 10px;
+}
+.hamburgerContainer span:nth-child(3) {
+	bottom: 0;
+}
+.hamburgerContainer.open span:nth-child(1) {
+	-webkit-transform: translateY(10px) rotate(-45deg);
+	transform: translateY(10px) rotate(-45deg);
+}
+.hamburgerContainer.open span:nth-child(2) {
+	opacity: 0;
+}
+.hamburgerContainer.open span:nth-child(3) {
+	-webkit-transform: translateY(-10px) rotate(45deg);
+	transform: translateY(-10px) rotate(45deg);
+}
+
+/* -------------------------
+	top page
+-------------------------- */
+
+/* common */
+
+.stageContainer {
+	height: auto;
+}
+.stageContainer .head {
+	position: static !important;
+	margin: 0 !important;
+	padding: 24px 0 22px;
+}
+.stageContainer h2 {
+	margin: 0;
+	font-size: 180%;
+	text-align: center;
+	margin: 0 3% 3% 3%;
+}
+.stageContainer p {
+	margin: 0 3%;
+	font-size: 75%;
+	text-align: center;
+}
+.en_tit {
+	letter-spacing: 5px;
+}
+/* stage navigation */
+
+#topStageNav {
+	display: none;
+}
+/* mainvisual */
+
+.topMainvisual {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin-left: 0;
+	-webkit-transform: none;
+	transform: none;
+}
+.topMainvisualInner {
+	position: absolute;
+	top: 45%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	z-index: 1;
+	width: 100%;
+	padding: 0 3%;
+}
+.topMainvisualText img {
+	width: 50%;
+	margin: 0 auto 5% auto;
+}
+.topMainvisualInner p {
+	font-size: 90%;
+	text-align: center;
+}
+.topMainvisualButton {
+	height: 60px;
+	margin: 25px auto 0;
+	padding: 0;
+	background: none;
+}
+.topMainvisual .doubleCircleButton {
+	display: none;
+}
+#topMainvisualImage {
+	display: block;
+	position: relative;
+	z-index: 0;
+}
+#topMainvisualImage:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	opacity: .5;
+	z-index: 2;
+}
+#topMainvisualImage li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+	opacity: 0;
+	line-height: 0;
+	transition: opacity 1s ease-out;
+}
+#topMainvisualImage li:first-child {
+	position: static;
+}
+#topMainvisualImage li.show {
+	opacity: 1;
+}
+#topMainvisualImage li img {
+	width: 100%;
+	height: auto;
+}
+/* toppiolife */
+
+.toppiolife {
+	background: none;
+}
+.toppiolife:before {
+	content: none;
+}
+.toppiolife .head {
+	padding: 36px 0 32px;
+}
+.toppiolife ul {
+	display: block;
+	position: static;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	overflow: hidden;
+	-webkit-transform: none;
+	transform: none;
+}
+.toppiolife li {
+	width: 50%;
+}
+.toppiolife li img {
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+}

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+/** div#scene */
+/**************************************/
+
+div#scenes {
+	margin:          0 0 30px 0;
+}
+
+div#scenes table {
+	margin:          0 0 30px 0;
+}
+
+div#scenes table.last {
+	margin:          0;
+}
+
+
+div#scenes table td {
+	vertical-align:  top;
+	width:           220px;
+}
+
+div#scenes table td.space {
+	width:           30px;
+}
+
+div#scenes table td img {
+	margin:          0 0 15px 0;
+}
+
+div#scenes table td h3.head_a_red {
+	margin:          0 0 10px 0;
+}
+
+div#scenes table td h3.head_a_red a {
+	font-size:       13px;
+	background-position: 0 5px;
+}
+
+div#scenes table td p.txt {
+	margin:          0 0 15px 0;
+}
+
+div#scenes table tr.link td {
+	background:      url("/scene/shared/img/index_scenes_more_bg.gif") left top no-repeat;
+	height:          auto;
+	padding:         5px 0;
+}
+
+div#scenes table tr.link td a {
+	background:      url("/scene/shared/img/index_scenes_more.gif") left top no-repeat;
+	display:         block;
+	color:           #ffffff;
+	text-align:      center;
+	line-height:     26px;
+	width:           120px;
+	height:          26px;
+	margin:          0 auto;
+}

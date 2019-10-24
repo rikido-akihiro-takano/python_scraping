@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+
+/** div#company_contents */
+/**************************************/
+div#company_contents,
+div#company_contents div.emcol3 {
+	margin:          0;
+}

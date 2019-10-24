@@ -1,0 +1,952 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@media screen and (min-width: 400px){
+	.consultation_meeting{
+		width: 315px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	/*Pio Lifeの追加コンテンツ*/
+	.top_btn_line{
+		padding: 5%;
+	}
+	.title_logo_box img{
+	width: 90%;
+	margin: 0 5%;
+}
+}
+@media screen and (min-width: 480px){
+	.brand .l_col{
+		position: relative;
+		float: none;
+		text-align: center;
+	}
+	.button_wrap{
+		/*display: inline;*/
+		margin: 0 auto;
+		text-align: center;
+		width: 240px;
+	}
+	.brand_button{
+		width: 240px;
+	}
+
+	.brand .r_col{
+		float: none;
+	}
+	.brand .r_col h1{
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+	.faq_box p{
+		font-size: 1em;
+		line-height: 180%;
+	}
+	.container,
+	.faq_box {
+		padding: 10px;
+	}
+	.box{
+		height: 280px;
+	}
+	.summary th, .summary td{
+		height: 60px;
+	}
+	.summary span.line_feed {
+    	display:inline-block;
+		margin-right: 0.5em;
+}
+	#about_compny .catch_copy .line_feed{
+		display: inline;
+	}
+}
+
+@media screen and (min-width: 560px){
+	.faq .sp{
+		display: block;
+		width: 520px;
+		/*margin: 0 auto;*/
+	}
+	#part_1 .l_col img{
+		width: 270px;
+		margin-bottom: 20px
+	}
+	#part_1 .r_col img,
+	#part_2 .l_col img,
+	#part_2 .r_col img{
+		display: block;
+		width: 520px;
+		margin: 0 auto 40px;
+	}
+	#part_2 .r_col img{
+		width: 80%;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		background-size: 700px 266px;
+	}
+	.model_case {
+		width: calc(100% - 84px);
+		margin: 40px auto 0;
+	}
+	.summary th, .summary td{
+		height: 70px;
+	}
+	.franchise_system_box{
+		width: calc(100% - 10px);
+	}
+	.box {
+		width: calc(50% - 10px);
+		padding: 10px;
+		margin: 5px;
+		height: 290px;
+	}
+	#box_1,#box_2,#box_3,#box_4{
+		height: 280px;
+	}
+	#about_compny .explanation {
+	    padding: 10px 30px;
+	}
+	.customer p {
+		display: table-cell;
+		width: 50%;
+	}
+	.photo_wrap .image_box{
+		display: table-cell;
+		width: calc(50% - 20px);
+		padding: 10px;
+	}
+
+	.photo_wrap .customer_bottom .image_box{
+	display: block;
+	float: left;
+	}
+	.photo_wrap .image_box img{
+		margin: 0 0 10px 0;	
+	}
+	/*.photo_wrap .image_box img.eiwa_image{
+		margin: 0 0 10px 18%;
+		width: 80%;
+	}*/
+	.photo_wrap .title_logo_box img{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	}
+	
+.photo_wrap .title_logo_box img.eiwa{
+margin-top: 25px;
+}
+	.balloon{
+		padding: 40px;
+		margin: 20px 15px;
+	}
+	.balloon::before{
+	top: -60px;
+	left: 20%;
+ 	margin-left: -30px;
+	border: 30px solid transparent;
+	border-bottom: 30px solid #E8F5FC;
+}
+}
+
+@media screen and (min-width: 640px){
+	#header .sp{
+		padding: 0 80px;
+	}
+	.brand{
+		/*position: relative;*/
+		text-align: center;
+		height: auto;
+	}
+	.button_upper{
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	.button_wrap{
+		width: 300px;
+	}
+	.brand_button{
+		font-size: 20px;
+		padding: 20px 0;
+		margin: 0 auto;
+		width: 300px;
+	}
+
+	.brand .l_col{
+		display: inline;
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.brand .l_col a img {
+		width: 240px;
+	}
+
+	.brand .r_col h1 img{
+		width: 120px;
+		padding-top: 0;
+	}
+	.container{
+		padding: 20px;
+	}
+	.faq_box {
+		padding: 10px 20px 20px;
+		margin-bottom: 40px;
+	}
+	.faq_box:last-child{
+		margin-bottom: 0;
+	}
+	.faq_box .sp{
+		display: none;
+	}
+	.faq_box .pc{
+		display: block;
+		width: 100%;
+	}
+	.faq_box p{
+		margin-top: 20px;
+	}
+	
+	#part_3 .faq img.pc{
+		display: block;
+	}
+
+	#part_3 img.sp{
+		width: 80%;
+		margin-bottom: 20px;
+	}
+	#model_plan{
+		background-size: 1000px;
+}
+	#model_plan h2,
+	#about_shinjuku h2,
+	#interview h2{
+		margin-top: 40px;
+		font-size: 2em;
+	}
+	.summary th, .summary td{
+		height: 80px;
+	}
+	.photo_wrap{
+		width: calc(100% - 20px);
+		margin: 15px auto 0;
+		padding: 10px;
+	}
+	.photo_wrap img{
+		width: calc(50% - 20px);
+		margin: 10px;
+		float: left;
+	}
+	.catch_copy{
+		margin: 40px 0;
+	}
+	.catch_copy span.line_feed{
+		display:inline;
+	}
+	.box{
+		height: 360px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 360px;
+	}
+	.title,
+	.title_02,
+	.title_02 .line_feed{
+		font-size: 18px;
+	}
+	.explanation{
+		font-size:14px;
+		line-height: 180%;
+	}
+	.model_case {
+		width: calc(100% - 124px);
+		margin: 60px auto 0;
+	}
+	#about_compny .explanation {
+	    padding: 10px 40px;
+	}
+	#we_help img.sp {
+	    display: none;
+	}
+	#we_help img.pc {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.staff_name {
+		margin-top: 10px;
+		font-size: 12px;
+	}
+	.present{
+		padding: 10px 0 20px;
+	}
+	.present .line_feed{
+		display: inline-block;
+	}
+	.consultation_meeting{
+		width: calc(100% - 240px);
+		margin: 20px auto;
+		padding: 0 120px;
+	}
+	.consultation_meeting h3{
+		margin-bottom: 20px;
+}
+	.consultation_meeting span.line_feed {
+		display: inline-block;
+		margin-left: 1em;
+	}
+	#map iframe {
+    	height: 320px;
+	}
+	.customer p{
+	font-size: 1.5em;
+	}
+	.interview_q{
+	font-size: 1.2em;
+	}
+	.interview_a{
+	font-size: 1em;
+	}
+	#footer .l_col img{
+		width: 100px;
+	}
+	#footer .r_col{
+		float: left;
+		margin-left: 110px;
+	}
+	.copy_right{
+		position: absolute;
+		right: 10px;
+		bottom: 12px;
+	}
+	.balloon{
+	font-size: 1em;
+	}	
+}
+@media screen and (min-width: 650px){
+	.box{
+		height: 370px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 370px;
+	}
+	.photo_wrap .title_logo_box img{
+	width: 90%;
+	margin: 25px 5%;
+	}
+	.photo_wrap .title_logo_box img.eiwa{
+	margin-top: 30px;
+	}
+}
+@media screen and (min-width: 700px){
+	.box{
+		height: 380px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 380px;
+	}
+		.model_case {
+		width: calc(100% - 164px);
+		margin: 80px auto 0;
+	}
+}
+@media screen and (min-width: 750px){
+	.box{
+		height: 390px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 390px;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		background-size: 800px 304px;
+	}
+	.balloon{
+		font-size: 1.1em;
+	}
+}
+@media screen and (min-width: 800px){
+	#header{
+		position: relative;	
+	}
+	#header .sp{
+		display: none;
+	}	
+	#header .pc{
+		display: block;
+		text-align: center;
+	}
+	#header .pc img{
+		width: 100%;
+	}
+	.mark {
+		width: auto;
+		text-align: left;
+		padding-left: 3%;
+		margin-bottom: 0;
+	}
+	.mark img{
+	width: 23%;
+	max-width: 300px;
+}
+	.h_box {
+		margin-top: -6% !important;
+	}
+	.brand .r_col h1{
+		right: 80px;
+	}
+	.button_wrap{
+		width: 500px;
+	}
+	.brand_button,
+	.button_wrap{
+		width: 360px;
+	}
+	#part_1 .l_col,
+	#part_1 .r_col{
+		float: none;
+		display: table-cell;
+	}
+	#part_2 .l_col,
+	#part_2 .r_col,
+	#part_3 .l_col,
+	#part_3 .r_col{
+		float: none;
+		display: table-cell;
+		vertical-align: bottom;
+	}	
+	#part_1 .l_col,
+	#part_2 .r_col,
+	#part_3 .l_col{
+		width: 38%;
+	}
+
+	#part_1 .l_col img{
+		width: 80%;
+		margin-bottom: 0;
+	}
+	#part_2 .r_col img{
+		width: calc(100% - 20px);
+		margin-left: 20px;
+	}
+	#part_1 .r_col,
+	#part_2 .l_col,
+	#part_3 .r_col{
+		width: 55%;
+	}
+	#part_1 .r_col img,
+	#part_2 .l_col img{
+		background-image:url(../img/lp/frame_pattern.png);
+		background-repeat: repeat;
+		width: calc(100% - 20px);
+		padding: 10px;
+	}
+	.faq_box .graphic_box img{
+	margin-bottom: 0!important;
+	}
+	#part_3 img.sp{
+		display: none;
+	}
+	#part_3 img.pc{
+		display: block;
+		width: 100%;
+	}
+	#part_3 .r_col img{
+		width: calc(100% - 5px);
+		margin-left: 5px;
+	}
+	.graphic_box p{
+		margin-bottom: 10px;
+	}
+	.box{
+		height: 400px;
+	}
+	#box_1,#box_2,#box_3,#box_4{
+		height: 400px;
+	}
+	.model_case{
+		width: 100%;
+	}
+	.summary{
+		margin: 20px;
+	}
+	.summary .l_col,
+	.summary .r_col{
+		float: left;
+		width: 50%;
+	}
+	.summary .l_col{
+		margin: 0;
+		padding-right: 10px;
+		border: none;
+	}
+	.summary th, .summary td{
+		height: 80px;
+		font-size: 20px;
+		line-height: 28px;
+	}
+	.summary .l_col table{
+		width: 100%;
+		border: #aeaeae solid 2px;
+		box-sizing: border-box;
+	}
+	.summary .r_col{
+		margin: 0 0 0 10px;
+		height: 322px;
+		border: #aeaeae solid 2px;
+		box-sizing: border-box;
+		width: calc(50% - 10px);
+		background-color: #fff;
+		overflow:hidden;
+		text-align: center;
+		display: flex;
+		align-items: center;
+	}
+	.summary .r_col img{
+		border: none;
+	}
+	.cost .l_col,
+	.cost .r_col{
+		float: left;
+		width: 50%;
+	}
+	.cost .l_col img,
+	.cost .r_col img{
+		padding-top: 20px;
+	}
+	#footer{
+		padding: 20px;
+	}
+	#footer .l_col img {
+		top: 20px;
+		left: 20px;
+	}
+	#footer .r_col {
+		padding-top: 2px;
+}
+	.copy_right{
+		bottom:22px;
+		right: 20px;
+	}
+	.photo_wrap .title_logo_box img{
+	width: 70%;
+	margin: 45px 15%;
+	}
+	.photo_wrap .title_logo_box img.eiwa{
+	margin-top: 50px;
+	}
+}
+@media screen and (min-width: 850px){
+	.box{
+		height: 400px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 400px;
+	}
+	.consultation_meeting{
+		width: calc(100% - 300px);
+		margin: 20px auto;
+		padding: 0 150px;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		background-size: 900px 342px;
+	}
+}
+@media screen and (min-width: 900px){
+	.box{
+		height: 410px;
+	}
+		#box_1,#box_2,#box_3,#box_4{
+		height: 410px;
+	}
+}
+@media screen and (min-width: 950px){
+	.box{
+		height: 420px;
+	}
+	#box_1,#box_2,#box_3,#box_4{
+		height: 420px;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		background-size: 1000px 380px;
+	}
+}
+@media screen and (min-width: 1000px){
+	#header{
+		width: 100%;
+		padding-bottom: 140px;
+	}
+	#header .pc{	
+		margin: 0 auto;
+		width: 900px;
+		padding: 0 50px;
+	}
+	.brand_button,
+	.button_wrap{
+		width: 500px;
+	}
+	.brand_button{
+		font-size: 30px;
+	}
+	.blank{
+		margin: 70px auto;
+	}
+	.blank_02{
+		margin: 50px auto;
+	}
+	.faq_box{
+		padding-top: 10px;
+	}
+	#part_1 .l_col,
+	#part_2 .r_col{
+		width: 40%;
+	}
+	#part_1 .r_col
+	#part_2 .l_col{
+		width: 60%;
+	}
+	#part_1 .l_col img{
+		width: 95%;
+		margin-right: 0;
+	}
+	#model_plan{
+		background-size: 2500px;
+	}
+	#model_plan h2,
+	#about_shinjuku h2,
+	#interview h2{
+		margin: 85px 0 30px;
+		font-size: 3em;
+	}
+	.photo_wrap{
+		width: calc(100% - 10px);
+		margin: 15px auto 0;
+		padding: 5px;
+	}
+	.photo_wrap img{
+		width: calc(25% - 10px);
+		margin: 5px;
+		float: left;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		margin-top: 5%;
+		background-size: 2500px 585px;
+	}
+	.summary .r_col{
+		height: 362px;
+	}
+	.summary th, .summary td{
+		height: 90px;
+		font-size: 26px;
+		line-height: 34px;
+	}
+	.summary .r_col img {
+		height: auto;
+		width: 100%;
+	}
+	.catch_copy{
+		margin: 40px 0;
+	}
+	.catch_copy p,
+	.catch_copy span{
+		font-size: 24px;
+		line-height: 42px;
+	}
+	.franchise_system_box {
+		width: calc(100% - 10px);
+	}
+	.box{
+		width: calc(33.33% - 10px);
+		height: 380px;
+		margin: 5px;
+		padding: 10px;
+	}
+	#box_1,#box_2,#box_3{
+		height: 370px;
+	}
+	#box_4{
+		height: 380px;
+	}
+	.title{
+		font-size: 24px;
+		margin: 25px 0;
+	}
+	.title_02{
+		font-size: 24px;
+		margin: 15px 0;
+	}
+	.title_02 .line_feed{
+		font-size: 24px;
+		margin: 0;
+	}
+	#about_compny .catch_copy {
+    	margin: 50px 0 40px;
+	}
+	#about_compny .explanation {
+    	padding: 10px 50px 20px;
+	}
+	#we_help h2 img{
+		margin-top: 15px;
+	}
+	.staff_name {
+    font-size: 16px;
+	}
+	.present p, .present span{
+		font-size: 40px;
+		line-height: 60px;
+	}
+	.consultation_meeting h3{
+		font-size: 32px
+	}
+	.consultation_meeting th,
+	.consultation_meeting td{
+		font-size: 24px;
+		line-height: 50px;
+	}
+	.consultation_meeting th{
+	width: 100px;
+	}
+	.consultation_meeting span.line_feed{
+	font-size: 24px;
+	line-height: 50px;
+	}
+	#map iframe{
+		height: 400px;
+	}
+	.customer {
+    padding: 40px;
+    margin: 20px;
+}
+	.customer p{
+	font-size: 2em;
+	margin-bottom:20px; 
+	}
+	.interview_q{
+	font-size: 1.2em;
+	padding: 40px 20px 20px;
+	}
+	.interview_a{
+	font-size: 1em;
+	padding: 0 20px 20px;
+	}
+	.balloon{
+		font-size: 1.2em;
+	}
+	.photo_wrap .title_logo_box img{
+margin-bottom: 10px;
+}
+	.photo_wrap .title_logo_box img{
+	position: relative;
+	width: 400px;
+	margin: 55px auto 0;
+	}
+	.photo_wrap .title_logo_box img.eiwa{
+	margin-top: 60px;
+	}
+}
+@media screen and (min-width: 1050px){
+	.box{
+		height: 390px;
+	}
+	#box_1,#box_2,#box_3,#box_4{
+		height: 390px;
+	}
+}
+@media screen and (min-width: 1100px){
+	.faq_box .pc,
+	#part_3 .faq img.pc{
+		width: 970px;
+	}
+	#part_1 .l_col img {
+    	width: 95%;
+}
+	.box{
+		height: 400px;
+	}
+	#box_1,#box_2,#box_3{
+		height: 380px;
+	}
+	#box_4{
+		height: 400px;
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.lp_wrap{
+		position: relative;
+	}
+	#header{
+		padding-bottom: 170px;
+	}
+	.brand{
+		height: 110px;
+		padding: 30px 10px;
+	}
+	.brand .r_col h1{
+		right: 100px;
+		bottom: 45px;
+	}
+	.brand .r_col h1 img{
+		width: 180px;
+	}
+	.slide-down {
+		  bottom: -220px;
+}
+@keyframes slideDown {
+  0% {
+    	bottom: 0;
+  }
+  100% {
+    	bottom: -220px;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -220px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+	.container{
+		width: 1160px;
+		margin: 40px auto;
+	}
+	
+	.faq_box{
+		padding: 20px 40px 40px;
+	}
+	.faq_box p{
+		font-size: 1.5em;
+		padding-top: 30px;
+	}
+	#part_2 .l_col p{
+		padding-top: 10px!important;
+	}
+	#part_1 .l_col img{
+		width: 90%;
+	}
+	.photo_wrap{
+		/*width: 1180px;*/
+		margin: 15px auto 0;
+		padding: 10px;
+	}
+	.photo_wrap img{
+		width: calc(25% - 20px);
+		margin: 10px;
+	}
+	#about_shinjuku,
+	#we_help,
+	#interview{
+		position: relative;
+	}
+	.model_case{
+		width: 1200px;
+		margin: 0 auto;
+	}
+	.catch_copy{
+		margin: 70px 0;
+	}
+	.catch_copy p,
+	.catch_copy span{
+		font-size: 32px;
+		line-height: 52px;
+	}
+	.franchise_system_box{
+	width: 1188px;
+	margin: 0 auto;
+}
+
+	.box{
+		float: left;
+		width: 384px;
+		padding: 12px;
+		margin: 6px;
+		height: 440px;
+	}
+	#box_1,#box_2,#box_3{
+		height: 420px;
+	}
+	#box_4{
+		height: 440px;
+	}
+	.title,
+	.title_02,
+	.title_02 .line_feed{
+		font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,serif;
+		font-size: 30px;
+		font-weight: 700;
+		text-align: center;
+		color: #030832;
+		margin: 15px 0;
+	}
+	.title_02 .line_feed{
+		margin: 0 0 0 5px;
+		display: inline;
+	}
+	.explanation{
+		text-align: justify;
+		font-size: 18px;
+		line-height: 30px;
+	}
+	#about_compny{
+		background-image: url(../img/lp/about_company_back_pc.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: top center;
+		padding: 165px 330px;
+	}
+	.about_compny_back{
+		display: none;
+	}
+	.about_compny_wrap{
+		/*width: 100%;*/
+		background-color: #fff;
+		padding: 20px;
+	}
+	#we_help h2 img{
+		width: 1200px;
+	}
+	.present{
+		margin: 10px auto;
+	}
+	.present,
+	.consultation_meeting{
+		width: 1120px;
+		padding: 0;
+		margin: 60px auto;
+	}
+	.footer_wrap{
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	#footer .l_col img{
+		top: 0;
+		left: 0;
+	}
+	.copy_right {
+    bottom: 2px;
+    right: 0;
+}
+}
+@media screen and (min-width: 1241px){
+	#we_help img.pc,
+	.staff_name{
+		width: 1200px;
+		margin: 10px auto 0;
+	}
+}

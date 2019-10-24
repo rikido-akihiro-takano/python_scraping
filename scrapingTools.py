@@ -1,3 +1,4 @@
+
 import requests
 import lxml
 from bs4 import BeautifulSoup
@@ -11,42 +12,264 @@ import time
 import datetime
 import pathlib
 from scraping_data.fromTop import topPageUrl
+import unicodedata
 
 
 # 計測用スタート時間：関数外に配置
 start= datetime.datetime.fromtimestamp(time.time())
-
+# グローバル変数
+# クエリ文字列以降はカット
 link_boxG= []
+# エラーが起きてたらくる
+link_boxG_escape=[]
+# クエリ文字列以降が繋がってるpass
+link_boxG_optisons=[]
+link_box_formG=[]
+logG= []
 
+# スープオブジェクト(aタグ, Fromタグ)生成
+def createSoupObject(url:str):
+    # html情報をget
+    html= requests.get(url)
+    # html.textを用いてBeautifulSoupのオブジェクト生成
+    soupObject= BeautifulSoup(html.text, 'lxml')
+    # BeautifulSoupのオブジェクトを用いて、html.textの内、aタグだけを収集
+    linksATag= soupObject.findAll('a')
+    # BeautifulSoupのオブジェクトを用いて、html.textの内、formタグだけを収集
+    linksFormTag= soupObject.findAll('form')
+    # aタグ、formタグの両方をreturnとして返したいので配列に詰める
+    soupObject=[linksATag, linksFormTag]
+    return soupObject
+
+# スープオブジェクト(aタグ）内のurlを抽出、一定の形式に整形
+def process_Atag(processingUrl:str, ATag):
+    # aタグをurl化
+    link= ATag.get('href')
+    #Htmlから抜き出したaタグのhrefにはNoneもあって、typeErrorが起きるのでskip 
+    if link == None:
+        return False
+    #URLの再構成、そもそもURLがNoneの場合はFalseでcontinue 
+    return reconstructionUrl('https://www.oshiire.co.jp', processingUrl, link)
 
 # linkをパーツ毎にバラバラに。パーツ毎のチェックを行いつつ再構成していく
 def reconstructionUrl(routeUrl:str, url:str, link:str):
-    
     parse_link= urllib.parse.urlparse(link) 
     
+    # Noneだったりtelだったらその時点でFalseをreturnする
     if not isValid(link):
         return False
-    # 相対パスなら今来てるPathと繋げる
-    if (parse_link.scheme)+(parse_link.netloc) == '':
-        link= url+(parse_link.path)
-    # 絶対パスならroutePathと繋げる
-    if (parse_link.scheme)+(parse_link.netloc) == '' and re.match('^/', parse_link.path):
+    print('\n\n\n------------------------------------------------------------スタート')
+    print(f'今のurl: {url}')
+    print(f'今のlink: {link}')
+    print(parse_link.path)
+    # urlの各パターンに対応
+    # --------------------------------------------------------------------------------------
+    # 絶対パスのみのパターン
+    if (parse_link.scheme)+(parse_link.netloc) == '' and re.match('^/.+$', parse_link.path):
         link= routeUrl+(parse_link.path)
+        link_only_top= routeUrl+(parse_link.path)
+        print('------------------------------------------------------------絶対パス')
+        print(link)
+    # https://www.oshiire.co.jp ×　相対パスのパターン
+    if url == routeUrl and not re.match('^/.+$', parse_link.path):
+        link= url + '/' + (parse_link.path)
+        link_only_top= url + '/' + (parse_link.path)
+        print('------------------------------------------------------------絶対パスV2')
+        print(link)
+    # 〜〜〜〜〜〜〜〜〜〜〜〜.html ×　相対パスのパターン
+    if (parse_link.scheme)+(parse_link.netloc) == ''  and not re.match('^/.+$', parse_link.path) and (pathlib.Path(parse_link.path).suffix) == '.html' and not url == routeUrl:
+        # /を区切り文字に、配列化
+        url= re.split(r'/', url)
+        url.pop(-1)
+        url= '/'.join(url)
+        link= url+ '/' +(parse_link.path)
+        link_only_top= url+ '/' +(parse_link.path)
+        print('------------------------------------------------------------相対パスV2')
+        print(link)
+    # 〜〜〜〜〜〜〜〜〜〜〜〜/〜〜/ × 相対パスのパターン　
+    if (parse_link.scheme)+(parse_link.netloc) == ''  and not re.match('^/.+$', parse_link.path)and not (pathlib.Path(parse_link.path).suffix) == '.html' and not url == routeUrl:
+        link= url+(parse_link.path)
+        link_only_top= url+(parse_link.path)
+        print('------------------------------------------------------------相対パス')
+        print(link)
+    # scheemaとnetcolが入ってるlinkはそれ用に再構成
+    if (parse_link.scheme)+(parse_link.netloc) != '':
+        link= (parse_link.scheme) + '://' + (parse_link.netloc) +(parse_link.path)
+        link_only_top= (parse_link.scheme) + '://' + (parse_link.netloc) +(parse_link.path)
+        print('------------------------------------------------------------フルパス')
+        print(link)
+    # --------------------------------------------------------------------------------------
+    
+    
     # 以降はパーツがあるなら再構成していく
+    # --------------------------------------------------------------------------------------
+    # params
     if parse_link.params != '':  
         link= link+ ';'+ urllib.parse.quote(parse_link.params, encoding='utf-8')
+        print('------------------------------------------------------------params')
+        print(link)
+    # query
     if parse_link.query != '':
-        link= link+ '?'+ urllib.parse.quote(parse_link.query, encoding='utf-8')
+        link= link+ '?'+ (urllib.parse.quote(parse_link.query, encoding='utf-8'))
+        print('------------------------------------------------------------query')
+        print(link)
+    # fragment
     if parse_link.fragment != '':
         link= link+ '#'+urllib.parse.quote(parse_link.fragment, encoding='utf-8')
+        print('------------------------------------------------------------fragment')
+        print(link)
+    # --------------------------------------------------------------------------------------
+    links=[link, link_only_top]
+    return links
+
+# カスタム要素、エラーが起きそうなデータを弾くアルゴリズム
+# return True or False
+def isValid(link:str):
+    tOrF= False
+    if link == './':
+        return tOrF
+    if link == '/':
+        return tOrF
+    if re.match('^tel:', link):
+        return tOrF
+    if re.match('^#', link):
+        return tOrF
+    tOrF= True
+    return tOrF
+
+# 指定のドメインなの？
+def availableDomain(link_normarized:str):
+    
+    try:
+        parse_link= urllib.parse.urlparse(link_normarized)
+        tOrF= False
+        # ----------------------------------ドメインがoshiireならlink_boxへ
+        if (parse_link.netloc == 'www.oshiire.co.jp'): 
+            tOrF= True
+        # ------------------------ドメインがcontainer.oshiireならlink_boxへ
+        if (parse_link.netloc == 'container.oshiire.co.jp'):
+            tOrF= True
+        return tOrF
+    # 文字コードの正規化に失敗したよ！みたいなエラーが出たので、手動で正規化してます
+    except ValueError:
+        link_normarized= unicodedata.normalize("NFKC", link_normarized)
+        return availableDomain(link_normarized)
+
+
+# 画像系は取り敢えず保留
+def suffixChecker(link:str):
+    checker= True
+    if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.jpg':
+        checker= False
+    if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.gif':
+        checker= False
+    if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.img':
+        checker= False
+    if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.png':
+        checker= False
+    if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.pdf':
+        checker= False
+    return checker
+    
+# Formタグ用保存メソッド
+def process_Formtag_and_add_to_lists(linksFormTag):
+    global link_box_formG
+    for link in linksFormTag:
+        # Formタグをurl化
+        print(f'\n{link}')
+        link_box_formG.append(f'\n{link}')
+        link_box_formG= list(dict.fromkeys(link_box_formG))
+
+
+
+
+# 1つのURLから、そのURLに存在するurl達をかき集めて、再構成して、list化して返してくれる関数
+def recursively_getting_urls_from_a_url(url:str):
+    
+    global link_boxG
+    global link_boxG_optisons
+    global logG
+    # recursionError対策
+    sys.setrecursionlimit(10000) 
+    # 処理済みURL（これから処理するURl）をlogに記録    
+    logG.append(url)
+    # ****************************************URLでgetリクエストを送り、htmlをget, aタグ, Formタグ抽出
+    soupObject= createSoupObject(url)
+    linksATag= soupObject[0]
+    linksFormTag= soupObject[1]
+
+    # ****************************************************************aタグの加工・仕分け・配列への保存
+    for temp_link in linksATag:
+        link_normarizeds= process_Atag(url, temp_link)
+        # returnにはlist型のとき、bool型のときがある
+        if not link_normarizeds:
+            continue
         
-    parse_link= urllib.parse.urlparse(link)
-    linkAndparse_link=[link, parse_link]
-    return linkAndparse_link
+        link_normarized= link_normarizeds[0]
+        link_only_top= link_normarizeds[1]
+        
+        if not availableDomain(link_normarized):
+            continue
+        # pathが././系だったらskip
+        if re.match("^(?=.*/\./\./).*$", urllib.parse.urlparse(link_normarized).path):
+              continue
+        # 画像系の拡張子でないかチェック
+        if not suffixChecker(link_normarized):
+              continue
+        # 単一のurlなのにparamsやqueryが少し違うからといってurl一つ分に数えるのはあんまよくない！ということでぶった切る
+        if urllib.parse.urlparse(link_normarized).params != '' or urllib.parse.urlparse(link_normarized).query != '' or urllib.parse.urlparse(link_normarized).fragment != '':
+            # ぶった切る前のやつをoptisonsへ
+            link_boxG_optisons.append(link_normarized)
+            link_boxG_optisons= list(dict.fromkeys(link_boxG_optisons))
+            # link_normarizedを上書き
+            link_normarized= link_only_top
+            print('****************************************変更後')
+            print(link_normarized)
+            print('*********************************************')
+        # ここまででバリデーションはかけているのでストレートに入れる
+        link_boxG.append(link_normarized)
+        link_boxG= list(dict.fromkeys(link_boxG))
+        # # --------------------------Domainがoshiire関係でないならlink_box_escapeへ
+        # link_boxG_escape.append(link_normarized)
+        # link_boxG_escape= list(dict.fromkeys(link_boxG_escape))
+        
+    # ******************************************************************************formタグの配列への保存
+    process_Formtag_and_add_to_lists(linksFormTag)
+    # ********************************************************************************再帰の箇所
+    # 配列化したUrlを順番に取り出す→既に処理したことがあれば関数へ飛ばさずskip
+    num= 1
+    print(f'\n\n\n\n頭||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||')
+    print('(link情報)')
+    print(f'-----------------------------------------------------------------------url:{url}')
+    for link in link_boxG:
+          print(f'{link}: {num}')
+          num += 1
+    print('--------------------------------------------------------------------------------------------------------------')       
+
+    for link in link_boxG:
+        # print(f'------------------------------------------------------------------now_link: {link}')
+        if link in logG:
+            continue
+        # 処理したことがなければ関数へ。
+        print(f'{link} と繋がりのあるURLを取ってくるよ')
+        recursively_getting_urls_from_a_url(link)
+        print(f'{link} は再帰閉じまーす')
+        print(f'\n\n後||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||')
+        logG= list(dict.fromkeys(logG))
+    
+    return [link_boxG, link_box_formG, link_boxG_optisons]
 
 
+
+# link_boxG系には毎回追加でUrlを加えていき、毎回重複を消す。再帰の為のデータベースであると同時にreturnの数値にもなる
+
+
+
+
+# ------------------------------------------------------------------------------------------------------------
 # 重複があれば削除, link切れを起こしてるものは削除
 def checkDuplicateAndCheckAccess(urls:list):
+    global link_boxG_escape
     urls= list(dict.fromkeys(urls))
     for url in urls:
         try:
@@ -56,29 +279,16 @@ def checkDuplicateAndCheckAccess(urls:list):
             urls.remove(url)
         except UnicodeEncodeError:
             print(url)
-            print('error起きてます')
+            print('UnicodeEncodeError起きてます')
+            link_boxG_escape.append(url)
+            link_boxG_escape= list(dict.fromkeys(link_boxG_escape))
+        except AttributeError:
+            print(url)
+            print('AttributeError起きてます')
+            link_boxG_escape.append(url)
+            link_boxG_escape= list(dict.fromkeys(link_boxG_escape))
     return urls
 
-# カスタム要素、エラーが起きそうなデータを弾くアルゴリズム
-def isValid(link:str):
-    tOrF= False
-    if re.match('^tel:', link):
-        return tOrF
-    if re.match('^#', link):
-        return tOrF
-    tOrF= True
-    return tOrF
-
-# 指定のドメインなの？
-def availableDomain(link:str, parse_link:urllib.parse.ParseResult):
-    tOrF= False
-    # ----------------------------------ドメインがoshiireならlink_boxへ
-    if (parse_link.netloc == 'www.oshiire.co.jp'): 
-        tOrF= True
-    # ------------------------ドメインがcontainer.oshiireならlink_boxへ
-    if (parse_link.netloc == 'container.oshiire.co.jp'):
-        tOrF= True
-    return tOrF
 
 # file保存（path, 保存file名, 材料になるlist）
 def sDatasCorectToFileAsList(path:str, fileName:str, data:list):
@@ -88,269 +298,19 @@ def sDatasCorectToFileAsList(path:str, fileName:str, data:list):
             file.write("\n '%s'," % datum)
         file.write("\n]")
 
+
 # file保存関数のセット、allurls仕様
 def createDirectoryAndFile(link_boxes:list):
     # --------------------------------------------再帰が完全に終了後、重複があれば削除, link切れを起こしてるものも削除
+    # link_boxG_escapeをエラー起きたurl入れる専用に変更
     link_box= checkDuplicateAndCheckAccess(link_boxes[0])
-    link_box_escape= checkDuplicateAndCheckAccess(link_boxes[1])
-    link_box_form= checkDuplicateAndCheckAccess(link_boxes[2])
+    link_box_form= link_boxes[1]
+    link_box_escape= link_boxG_escape
+    link_box_optisons = link_boxes[2]
     
     # file保存（path, 保存file名, 材料になるlist）
     sDatasCorectToFileAsList('./scraping_data/fromAll', 'allPageUrl.py', link_box)  
     sDatasCorectToFileAsList('./scraping_data/fromAll', 'allPageUrlEscape.py', link_box_escape) 
     sDatasCorectToFileAsList('./scraping_data/fromAll', 'allPageUrlForm.py', link_box_form) 
-        
-
-
-
-
-  
-# 別のリンクをスクレイピングする際は要カスタマイズ
-def getAllFromALink(link_box:list=[], link_box_escape:list=[], link_box_form:list=[], log:list=[]):
-    sys.setrecursionlimit(10000) 
-    # TopPageから取り出したURL群を順番に取り出してターゲットURLとして扱う
-
-    
-    for url in link_box:
-        
-        # --------------------------------------------------logData収集
-        log.append(url)
-        
-        html= requests.get(url)
-        soup= BeautifulSoup(html.text, 'lxml')
-        
-        #aタグ、formタグを全回収 
-        linksATag= soup.findAll('a')
-        linksFormTag= soup.findAll('form')
-        # linksImageTag= soup.findAll('img')
-        
-        
-        now = datetime.datetime.fromtimestamp(time.time())
-        print('配列から1つのurl取り出し、html構造からurls取り出し、配列化したとこ')
-        print(f'経過時間: {now.minute - start.minute}分{now.second - start.second}秒')
-        
-        # ターゲットURLに関連するURL達を収集する
-        # ******************************************************************************aタグの仕分け
-        for link in linksATag:
-            # ----------------------------------------------------------------------------------URLの前処理
-            link= link.get('href')
-            
-            #Htmlから抜き出したaタグのhrefにはNoneもあって、typeErrorが起きるのでskip 
-            if link == None:
-                continue
-            
-            #URLの再構成、そもそもURLでない場合はNoneでcontinue 
-            linkAndparse_link= reconstructionUrl('https://www.oshiire.co.jp', url, link)
-            if linkAndparse_link == False:
-                continue
-            link= linkAndparse_link[0]
-            parse_link= linkAndparse_link[1]
-            
-            # -----------------------------------------------Domainがoshiire関係か？
-            if availableDomain(link, parse_link):
-                link_box.append(link)
-                continue
-            # --------------------------Domainがoshiire関係でないならlink_box_escapeへ
-            link_box_escape.append(link)
-            
-            print('link_boxの長さ')
-            print(len(link_box))
-            print(len(link_box_escape))
-            
-        now = datetime.datetime.fromtimestamp(time.time())
-        print('html構造から取り出したUrlsを再形成し終わったとこ')
-        print(f'経過時間: {now.hour - start.hour}時間{now.minute - start.minute}分{now.second - start.second}秒')
-        
-        # ******************************************************************************formタグの仕分け
-        for link in linksFormTag:
-            link= link.get('href')
-            link_box_form.append(link)
-            
-        # logに存在しているurlを抜いたlink_boxを再帰専用として作成、最終的に戻ってきた時に抜け分と結合でMax！
-        # link_box_alt=  
-        # link_box_escape= 
-        # link_box_form=
-        # skipされなければ再帰処理。現在のlink_box等のlistを飛ばす
-        link_boxes= getAllFromALink(link_box, link_box_escape, link_box_form, log)
-        # 再帰処理から帰ってきた各listの中身を呼び出し元へ反映
-        link_box= link_box + link_boxes[0]
-        link_box_escape= link_box_escape + link_boxes[1]
-        link_box_form= link_box_form + link_boxes[2]
-        log= log + link_boxes[3]
-    
-    # returnする用にlist化
-    link_boxes=[link_box, link_box_escape, link_box_form, log]
-    
-    # return
-    return link_boxes
-
-
-# スープオブジェクト(Atag, Fromtag)生成
-def createSoupObject(url:str, start):
-    html= requests.get(url)
-    now = datetime.datetime.fromtimestamp(time.time())
-    print('html= requests.get(url)')
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    soupObject= BeautifulSoup(html.text, 'lxml')
-    now = datetime.datetime.fromtimestamp(time.time())
-    print("BeautifulSoup(html.text, 'lxml'")
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    linksATag= soupObject.findAll('a')
-    now = datetime.datetime.fromtimestamp(time.time())
-    print("linksATag= soupObject.findAll('a')")
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    linksFormTag= soupObject.findAll('form')
-    now = datetime.datetime.fromtimestamp(time.time())
-    print("linksFormTag= soupObject.findAll('form')")
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    soupObject=[linksATag, linksFormTag]
-    now = datetime.datetime.fromtimestamp(time.time())
-    print('oupObject=[linksATag, linksFormTag]')
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    return soupObject
-
-# 第一引数: どのUrlのhtml内、aタグを処理中か？
-# 第二引数: 処理予定のaタグ達
-# 第三引数: 空のlist or 最終的なurl集約場所
-# 第四引数: 第三引数の処理できなかったもの達
-def process_Atag_and_add_to_lists(url:str, linksATag:list, link_box:list, link_box_escape:list, log:list):
-    for link in linksATag:
-        # aタグをurl化
-        link= link.get('href')
-        #Htmlから抜き出したaタグのhrefにはNoneもあって、typeErrorが起きるのでskip 
-        if link == None:
-            continue
-        #URLの再構成、そもそもURLでない場合はFalseでcontinue 
-        linkAndparse_link= reconstructionUrl('https://www.oshiire.co.jp', url, link)
-        if linkAndparse_link == False:
-            continue
-        link= linkAndparse_link[0]
-        parse_link= linkAndparse_link[1]
-        
-         # -----------------------------------------------Domainがoshiire関係か？
-        if availableDomain(link, parse_link):
-            link_box.append(link)
-            continue
-        # --------------------------Domainがoshiire関係でないならlink_box_escapeへ
-        link_box_escape.append(link)
-    
-    # return用に配列を二次元配列化
-    link_boxes=[link_box, link_box_escape]
-    return link_boxes
-
-# Formタグ用保存メソッド
-def process_Formtag_and_add_to_lists(linksFormTag, link_box_form):
-    for link in linksFormTag:
-        # Formタグをurl化
-        link= link.get('href')
-        link_box_form.append(link)
-    return link_box_form
-        
-# 再帰部分をメソッド化
-def process_of_recursive(link:str, log:str):
-
-    # 再帰処理、returnはlink_boxes
-    link_boxes= recursively_getting_urls_from_a_url(link)
-    
-    # 再帰処理後のlink_boxesとそれ以前のlink_boxesと結合させる
-    link_box= link_boxes[0]
-    link_box_escape= link_boxes[1]
-    link_box_form= link_boxes[2]
-    log= log + link_boxes[3]
-    # logの重複削除
-    log= list(dict.fromkeys(log))
-    link_boxes=[link_box, link_box_escape, link_box_form, log]
-    return link_boxes   
-
-
-def support_of_recursive(link_boxes:list,link_box:list, link_box_escape:list, link_box_form:list, log:list):
-    link_box= link_boxes[0] + link_box
-    link_box_escape= link_boxes[1] + link_box_escape
-    link_box_form= link_boxes[2] + link_box_form
-    log= link_boxes[3]
-    link_boxes=[link_box, link_box_escape, link_box_form, log]
-    return link_boxes  
-
-
-
-
-# 1つのURLから、そのURLに存在するurl達をかき集めて、再構成して、list化して返してくれる関数
-def recursively_getting_urls_from_a_url(url:str,link_box:list=[], link_box_escape:list=[], link_box_form:list=[], log:list=[]):
-    # recursionError対策
-    sys.setrecursionlimit(10000) 
-    
-    # 処理済みURL（これから処理するURl）をlogに記録
-    log.append(url)
-    print(f'\n\n------------------------logの記録されたUrl数{len(log)}')
-    with open('log.py', 'a') as file:
-        file.write(f'\n{url}')
-    print(f'------------------------今回処理のUrl: {url}')
-    now_first = datetime.datetime.fromtimestamp(time.time())
-    print('処理済みURL（これから処理するURl）をlogに記録')
-    print(f'-------------------------------------------------------------経過時間: {now_first.minute - start.minute}分{now_first.second - start.second}秒\n')
-    # ****************************************URLでgetリクエストを送り、htmlをget, aタグ, Formタグ抽出
-    soupObject= createSoupObject(url, start)
-    linksATag= soupObject[0]
-    linksFormTag= soupObject[1]
-    
-    now = datetime.datetime.fromtimestamp(time.time())
-    print('URLでgetリクエストを送り、htmlをget, aタグ, Formタグ抽出')
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    # ****************************************************************aタグの加工・仕分け・配列への保存
-    processedATag= process_Atag_and_add_to_lists(url, linksATag, link_box, link_box_escape, log)
-    link_box= processedATag[0]
-    link_box_escape= processedATag[1]
-    
-    now = datetime.datetime.fromtimestamp(time.time())
-    print('aタグの加工・仕分け・配列への保存')
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    # ******************************************************************************formタグの配列への保存
-    processedFormTag= process_Formtag_and_add_to_lists(linksFormTag, link_box_form)
-    link_box_form= processedFormTag
-
-    now = datetime.datetime.fromtimestamp(time.time())
-    print('formタグの配列への保存')
-    print(f'-------------------------------------------------------------経過時間: {now.minute - start.minute}分{now.second - start.second}秒\n')
-    print(f'-------------------------------------------------------------今回の総経過時間: {now.minute - now_first.minute}分{now.second - now_first.second}秒\n\n\n')
-    # ********************************************************************************再帰の箇所
-    # 配列化したUrlを順番に取り出す→既に処理したことがあれば関数へ飛ばさずskip
-    for link in link_box:
-        if link in log:
-            continue
-        # jpgも紛れてくることがある
-        if (pathlib.Path(urllib.parse.urlparse(link).path).suffix) == '.jpg':
-            continue
-        if (requests.get(link).status_code) >= 400:
-            continue
-        # 処理したことがなければ関数へ。
-        link_boxes= process_of_recursive(link, log)
-        link_boxes= support_of_recursive(link_boxes, link_box, link_box_escape, link_box_form, log)
-        link_box= link_boxes[0]
-        link_box_escape= link_boxes[1]
-        link_box_form= link_boxes[2]
-        log= link_boxes[3]
-                
-    link_boxes=[link_box, link_box_escape, link_box_form, log]
-    return link_boxes 
-
-
-
-
-
-
-
-
-
-    
-
-# # ******************************************************************************imageタグの仕分け
-# for link in linksImageTag:
-#     link= link.get('src')
-#     linkAndparse_link= reconstructionUrl('https://www.oshiire.co.jp', url, link)
-#     if linkAndparse_link == None:
-#         continue
-#     link_box_image.append(link)
-# link_box_image= list(dict.fromkeys(link_box_image))
-
-# file保存（path, 保存file名, 材料になるlist）
-# sDatasCorectToFileAsList('./scraping_data/fromAll', 'allPageUrlImg.py', link_box_image)  
+    sDatasCorectToFileAsList('./scraping_data/fromAll', 'allPageUrlOptisons.py', link_box_optisons) 
+# ------------------------------------------------------------------------------------------------------------

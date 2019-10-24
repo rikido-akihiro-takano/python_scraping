@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+
+/** div#tel_form */
+/**************************************/
+div#tel_form {
+	
+}
+
+div#tel_form div {
+	
+}
+
+div#tel_form div ul {
+	
+}
+
+div#tel_form div ul li {
+	padding:         0 20px 0 0;
+	float:           left;
+}
+
+div#tel_form div ul li.form {
+	padding:         0;
+}
+
+div#tel_form div ul li div {
+	position:        relative;
+	top:             0px;
+	left:            0px;
+	background:      url("/contact/img/index_tel_form_bg.gif") left top no-repeat;
+	width:           350px;
+	height:          195px;
+}
+
+div#tel_form div ul li div h3 {
+	line-height:     1.5;
+	position:        absolute;
+	color:           #d40e0e;
+	font-size:       16px;
+}
+
+div#tel_form div ul li.tel div h3        { top: 25px; left: 84px; }
+div#tel_form div ul li.form div h3       { top: 10px; left: 73px; }
+
+div#tel_form div ul li div img           { position: absolute; }
+div#tel_form div ul li.tel div img       { top: 70px; left: 30px; }
+div#tel_form div ul li.tel div img.icon  { top: 12px; left: 10px; }
+div#tel_form div ul li.form div img.icon { top: 10px; left: 17px; }
+
+div#tel_form div ul li.form div p {
+	position:        absolute;
+	top:             78px;
+	left:            14px;
+}
+
+div#tel_form div ul li.form div a {
+	position:        absolute;
+	top:             109px;
+	left:            35px;
+}
+
+
+/** to_faq */
+/**************************************/
+div#to_faq {
+	background:      url("/contact/img/index_to_faq_bg.gif") left top no-repeat;
+	margin:          0;
+	padding:         20px 15px 15px 15px;
+}
+
+div#to_faq h2.head_a_red {
+	margin:          0 0 15px 0;
+}
+
+div#to_faq div {
+	padding:         15px 0 0 0;
+}
+
+div#to_faq div a {
+	background:      url("/contact/img/index_to_faq_btn.gif") left top no-repeat;
+	display:         block;
+	color:           #ffffff;
+	text-align:      center;
+	line-height:     26px;
+	width:           120px;
+	height:          26px;
+}
+
+
+/** faq */
+/**************************************/
+div.faq {
+	background:      url("/contact/img/index_faq_bg.gif") left bottom no-repeat;
+	margin:          0;
+	padding:         0 0 10px 0;
+}
+
+div.faq h2 {
+	background:      url("/contact/img/index_faq_head_bg.gif") left top repeat-x;
+	display:         block;
+	line-height:     24px;
+	font-size:       12px;
+	color:           #ffffff;
+	width:           720px;
+	height:          24px;
+}
+
+div.faq h2 span {
+	padding:         0 0 0 15px;
+}
+
+div.faq dl {
+	width:           684px;
+	margin:          0 18px;
+	padding:         15px 0;
+}
+
+div.faq dl.last {
+	background:      none;
+}
+
+div.faq dl dd {
+	background:      url("/shared/img/faq_A_bg_s.gif") left top no-repeat;
+	width:           684px;
+}
+
+div.faq dl dd p {
+	background:      url("/shared/img/faq_A_bg_s.gif") left bottom no-repeat;
+}
+
+
+/** clearfix */
+/**************************************/
+div#tel_form div ul:after
+{
+	content:         ".";
+	height:          0;
+	clear:           both;
+	visibility:      hidden;
+	display:         block;
+}
+
+div#tel_form div ul
+{
+	display:         inline-block;
+}
+
+/*\*/
+* html div#tel_form div ul
+{
+	height:          1%;
+}
+
+div#tel_form div ul
+{
+	display:         block;
+}

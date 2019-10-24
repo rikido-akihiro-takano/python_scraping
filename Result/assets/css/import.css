@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/*@import "/assets/css/reset.css";*/
+/*@import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";*/
+/*@import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css";*/
+/*@import "/assets/css/todc-bootstrap.min.css";*/
+@import url("font-awesome.min.css") all;
+@import url("bootstrap.css") all;
+@import url("normalize.css") all;
+@import url("bootstrap.custom.css") all;
+@import url("style.css") all;
+@import url("visual.css") all;
+@import url("res.css") all;
+@import url("respl.css") all;
+@import url("animate.css") all;
+@import url("seiri_syunou.css") all;
+@import url("print.css") print;

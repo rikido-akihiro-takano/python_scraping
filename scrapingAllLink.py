@@ -1,6 +1,6 @@
 from scraping_data.fromTop import topPageUrl
 # import scrapingTools
-import tes
+import scrapingTools
 import urllib.parse
 import re
 import unicodedata
@@ -9,9 +9,9 @@ import unicodedata
   
 # 全部のlinkを叩き出す用
 # link_boxes= scrapingTools.getAllFromALink(topPageUrl.urls)
-link_boxes= tes.recursively_getting_urls_from_a_url('https://www.oshiire.co.jp')
+link_boxes= scrapingTools.recursively_getting_urls_from_a_url('https://www.oshiire.co.jp')
 # 叩き出したlinkをファイルに書き込む用
-tes.createDirectoryAndFile(link_boxes)
+scrapingTools.createDirectoryAndFile(link_boxes)
 
 
 

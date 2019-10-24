@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+
+/** head */
+/**************************************/
+
+h1.head_interview {
+	position:        relative;
+	top:             0px;
+	left:            0px;
+	background:      #eeeadf url(../img/interview_title_bg.gif) left bottom no-repeat;
+	color:           #006546;
+	font-weight:     bold;
+	display:         block;
+	width:           720px;
+	height:          220px;
+	margin-top:      41px;
+	margin-bottom:   30px;
+}
+
+
+h1.head_interview span.title {
+	font-size:       22px;
+	line-height:     1.5;
+	width:           485px;
+	display:         block;
+	position:        absolute;
+	left:            20px;
+	top:             70px;
+}
+
+h1.head_interview span.sub {
+	font-size:       13px;
+	line-height:     1.5;
+	color:           #444444;
+	width:           485px;
+	display:         block;
+	position:        absolute;
+	left:            20px;
+	top:             160px;
+}
+
+h1.head_interview em {
+	position:        absolute;
+	top:             -40px;
+	left:            0px;
+	width:           720px;
+}
+
+h1.head_interview span.img {
+	position:        absolute;
+	top:             14px;
+	right:           20px;
+}
+
+
+h2.head_line_dotted {
+	font-size:       18px;
+	font-weight:     bold;
+	line-height:     1.5;
+	background:      url("../img/interview_line.gif") left bottom repeat-x;
+	color:           #222222;
+	height:          35px;
+	margin-bottom:   15px;
+	display:         block;
+}
+
+h2.head_line_dotted span {
+	padding:         3px 0 2px 50px;
+
+}
+
+h2.head_line_dotted span.q1 { background: url(../img/interview_icon_q1.gif) no-repeat; }
+h2.head_line_dotted span.q2 { background: url(../img/interview_icon_q2.gif) no-repeat; }
+h2.head_line_dotted span.q3 { background: url(../img/interview_icon_q3.gif) no-repeat; }
+h2.head_line_dotted span.q4 { background: url(../img/interview_icon_q4.gif) no-repeat; }
+h2.head_line_dotted span.q5 { background: url(../img/interview_icon_q5.gif) no-repeat; }
+h2.head_line_dotted span.q6 { background: url(../img/interview_icon_q6.gif) no-repeat; }
+h2.head_line_dotted span.q7 { background: url(../img/interview_icon_q7.gif) no-repeat; }
+
+
+div.box p img.fl-r {
+	float:           right;
+	margin:          0 0 20px 20px;
+}
+
+div.box p img.fl-l {
+	float:           left;
+	margin:          0 20px 20px 0;
+}
+
+
+/** clearfix */
+/**************************************/
+div.box p:after
+{
+	content:         ".";
+	height:          0;
+	clear:           both;
+	visibility:      hidden;
+	display:         block;
+}
+
+div.box p
+{
+	display:         inline-block;
+}
+
+/*\*/
+* html div.box p
+{
+	height:          1%;
+}
+
+div.box p
+{
+	display:         block;
+}

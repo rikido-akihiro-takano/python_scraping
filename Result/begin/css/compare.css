@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+
+/** div#main */
+/**************************************/
+
+div#main {
+	background:      url(../img/compare_main_bg.gif);
+	width:           720px;
+	height:          440px;
+	margin:          0 0 30px 0;
+ 	position:        relative;
+}
+
+div#main h2,
+div#main p.img,
+div#main h3,
+div#main p.txt,
+div#main ul,
+div#main p.btn {
+	position:        absolute;
+}
+
+div#main h3,
+div#main p.txt {
+	width:           295px;
+	margin:          0 15px;
+}
+
+div#main p.img { top : 65px; }
+div#main h3    { top : 235px; }
+div#main p.txt { top : 265px; }
+div#main ul    { top : 315px; }
+div#main p.btn { top : 363px; }
+
+div#main div#main-trunkroom p.img,
+div#main div#main-trunkroom h3,
+div#main div#main-trunkroom p.txt,
+div#main div#main-trunkroom ul,
+div#main div#main-trunkroom p.btn {
+	left:            25px;
+}
+
+div#main div#main-rentalspace p.img,
+div#main div#main-rentalspace h3,
+div#main div#main-rentalspace p.txt,
+div#main div#main-rentalspace ul,
+div#main div#main-rentalspace p.btn {
+	left:            370px;
+}
+
+div#main h2 {
+	line-height:     1.3;
+	text-align:      center;
+	font-size:       30px;
+	font-weight:     bold;
+	color:           #077150;
+	width:           720px;
+	top:             20px;
+	left:            0px;
+}
+
+div#main ul {
+	background:      url(../img/compare_main_label.gif) no-repeat;
+	margin:          0 15px;
+}
+
+div#main ul li {
+	margin:          0 20px 0 0;
+ 	float:           left;
+}
+
+div#main p.btn {
+	text-align:      center;
+	border-top:      1px dotted #999999;
+	width:           295px;
+	margin:          0 15px;
+	padding:         10px 0 0 0;
+}
+

@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+
+/** detail */
+/**************************************/
+
+h1.head_scene {
+	position:        relative;
+	top:             0px;
+	left:            0px;
+	background:      url(../img/detail_title_bg.gif) left top no-repeat;
+	color:           #006546;
+	font-weight:     bold;
+	display:         block;
+	width:           720px;
+	height:          151px;
+	margin-top:      41px;
+	margin-bottom:   0px;
+}
+
+
+h1.head_scene span.title {
+	font-size:       24px;
+	width:           485px;
+	display:         block;
+	position:        absolute;
+	left:            40px;
+	top:             40px;
+}
+
+h1.head_scene em {
+	position:        absolute;
+	top:             -40px;
+	left:            0px;
+	width:           720px;
+}
+
+h1.head_scene span.img {
+	position:        absolute;
+	top:             -45px;
+	right:           10px;
+}
+
+
+
+
+/* proposal */
+
+div#proposal {
+	background:      #e6f1f7 url(../img/detail_plan_bg.gif) no-repeat bottom;
+	margin-top:      -10px;
+}
+
+div#proposal div#lead {
+	margin:          0 0 20px 0;
+}
+
+div#proposal div#lead h2 {
+	font-size:       18px;
+	color:           #ffffff;
+	background:      url(../img/detail_plan_title.gif) no-repeat;
+	height:          32px;
+	margin:          0 0 20px 0;
+	padding:         28px 0 0 75px;
+}
+
+div#proposal div#lead p.txt {
+	padding:         0 20px;
+}
+
+
+div#proposal div#plans h2,
+div#proposal div#example h2,
+div#proposal div#features h2 {
+	font-size:       16px;
+	color:           #ffffff;
+	background:      url(../img/detail_plan_minititle.gif) no-repeat;
+	height:          25px;
+	margin:          0 0 20px 0;
+	padding:         5px 0 0 20px;
+}
+
+
+
+/* plan */
+
+div#proposal div#plans div.pl {
+	background:      #ffffff;
+	border:          4px solid #007bbb;
+	width:           682px;
+	margin:          0 auto 20px auto;
+	position:        relative;
+}
+
+div#proposal div#plans div.pl h3 {
+	font-size:       14px;
+	color:           #ffffff;
+	background:      #007bbb;
+	height:          30px;
+	padding:         6px 0 0 70px;
+}
+
+div#proposal div#plans div.pl img.icon_plan {
+	top:             -10px;
+	left:            -10px;
+	position:        absolute;
+}
+
+div#proposal div#plans div.pl div.detail {
+	padding:         15px;
+}
+
+div#proposal div#plans div.pl.trunk-s div.detail { background: url(../img/detail_plan_trunk_s.gif) no-repeat top right; }
+div#proposal div#plans div.pl.trunk-m div.detail { background: url(../img/detail_plan_trunk_m.gif) no-repeat top right; }
+div#proposal div#plans div.pl.trunk-l div.detail { background: url(../img/detail_plan_trunk_l.gif) no-repeat top right; }
+div#proposal div#plans div.pl.trunk-lm div.detail { background: url(../img/detail_plan_trunk_lm.gif) no-repeat top right; }
+div#proposal div#plans div.pl.rental  div.detail { background: url(../img/detail_plan_rental.gif) no-repeat top right; }
+
+div#proposal div#plans div.pl div.detail h4 {
+	font-size:       24px;
+	border-bottom:   1px dotted #999999;
+	width:           450px;
+	padding:         0 0 10px 0;
+}
+
+div#proposal div#plans div.pl div.detail h4 a {
+	color:           #d6002b;
+	background:      url(../../../shared/img/utility/icon_arrow_r_red_white.gif) no-repeat 0 8px;
+	padding:         0 0 0 20px;
+	display:         block;
+}
+
+div#proposal div#plans div.pl div.detail p.size {
+	background:      url(../img/detail_plan_size.gif) no-repeat 0 0;
+	padding:         0 0 15px 50px;
+	position:        relative;
+}
+
+div#proposal div#plans div.pl div.detail table.price th,
+div#proposal div#plans div.pl div.detail table.price td {
+	font-weight:     bold;
+	text-align:      center;
+	vertical-align:  middle;
+	border-bottom:   2px solid #ffffff;
+	height:          50px;
+}
+
+div#proposal div#plans div.pl div.detail table.price th {
+	font-size:       14px;
+	color:           #ffffff;
+	background:      #d6002b;
+}
+
+div#proposal div#plans div.pl div.detail table.price tr.sum th {
+	background:      #007550;
+}
+
+div#proposal div#plans div.pl div.detail table.price tr.sum td {
+	background:      #dad7d1;
+}
+
+div#proposal div#plans div.pl div.detail table.price td {
+	font-size:       14px;
+	background:      #f3efe5;
+}
+
+div#proposal div#plans div.pl div.detail table.price td em {
+	color:           #d6002b;
+}
+
+div#proposal div#plans div.pl div.detail p.notes {
+	font-size:       11px;
+	margin:          15px 0 0 0;
+}
+
+div#proposal div#plans div.pl div.detail p.notes a {
+	color:           #d6002b;
+}
+
+
+/* 詳細css */
+div#proposal div#plans div.pl div.detail table.price.trunk th {
+	width:           150px;
+}
+
+div#proposal div#plans div.pl div.detail table.price.trunk td {
+	font-size:       14px;
+	width:           300px;
+}
+
+div#proposal div#plans div.pl div.detail table.price.trunk td em {
+	font-size:       24px;
+}
+
+div#proposal div#plans div.pl div.detail table.price.rental th {
+	width:           60px;
+}
+
+div#proposal div#plans div.pl div.detail table.price.rental td {
+	font-size:       12px;
+	width:           165px;
+}
+
+div#proposal div#plans div.pl div.detail table.price.rental td em {
+	font-size:       16px;
+}
+
+/* 詳細css */
+
+div#proposal div#plans div.pl div.links {
+	background:      #007bbb url(../img/detail_links_bg.gif) no-repeat;
+	width:           652px;
+	padding:         15px 15px 10px 15px;
+	overflow:        hidden;
+}
+
+div#proposal div#plans div.pl div.links ul {
+	width:           690px;
+}
+
+div#proposal div#plans div.pl div.links ul li {
+	margin:          0 10px 0 0;
+	float:           left;
+}
+
+
+
+/* example */
+
+div#proposal div#example {
+	padding:         0 0 15px 0;
+}
+
+div#proposal div#example div.in {
+	background:      #ffffff;
+	border:          4px solid #999999;
+	width:           646px;
+	margin:          0 auto;
+	padding:         0 17px 17px 17px;
+}
+
+div#proposal div#example table {
+	width:           650px;
+}
+
+div#proposal div#example table td {
+	width:           114px;
+	padding:         15px 0 0 0;
+}
+
+
+div#proposal div#example table td div {
+	text-align:      center;
+	position:        relative;
+}
+
+div#proposal div#example table td img {
+	position:        relative;
+	z-index:         1;
+}
+
+div#proposal div#example table td span {
+	text-align:      center;
+	line-height:     32px;
+	color:           #ffffff;
+	background:      url(/service/trunk_room/img/size_sizes_badge.png);
+	width:           32px;
+	height:          32px;
+	display:         block;
+	top:             0;
+	right:           0;
+	position:        absolute;
+	z-index:         2;
+}
+
+* html div#proposal div#example table td span {
+	background      : none;
+	filter          : progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/service/trunk_room/img/size_sizes_badge.png',sizingMethod=scale);
+}
+
+
+div#proposal div#example div.plus {
+	background:      url(../img/detail_icon_plus.gif) no-repeat center 60px;
+	width:           20px;
+}
+
+div#proposal div#example table td.plus.none { background : none; }
+
+div#proposal div#example p.notice {
+	color:           #d6002b;
+	margin:          15px 0 0 0
+}
+
+
+
+/* feature */
+
+div#proposal div#features div.ft {
+	background:      #ffffff;
+	border:          4px solid #007bbb;
+	width:           682px;
+	margin:          0 auto 20px auto;
+	position:        relative;
+}
+
+div#proposal div#features div.ft h3 {
+	font-size:       14px;
+	color:           #ffffff;
+	background:      #007bbb;
+	height:          30px;
+	padding:         6px 0 0 70px;
+}
+
+div#proposal div#features div.ft img.icon_feature {
+	top:             -10px;
+	left:            -10px;
+	position:        absolute;
+}
+
+div#proposal div#features div.ft div.detail {
+	padding:         15px;
+}
+
+
+
+/* contact_office */
+
+div#contact_office {
+}
+
+div#contact_office h2 {
+	font-size:       16px;
+	color:           #ffffff;
+	background:      url(../img/detail_contact_title.gif) no-repeat;
+	height:          30px;
+	margin:          0 0 20px 0;
+	padding:         10px 0 0 15px;
+}
+
+div#contact_office div {
+	padding:         0 0 20px 15px;
+}
+
+div#contact_office div p {
+	margin:          0 0 20px 0;
+}
+
+div#contact_office div ul {
+
+}
+
+div#contact_office div ul li {
+	padding:         0 15px 0 0;
+	float:           left;
+}
+
+div#contact_office div ul li div {
+	position:        relative;
+	top:             0px;
+	left:            0px;
+	width:           337px;
+	padding:         5px 0;
+}
+
+div#contact_office div ul li.tel div {
+	background:      url("/shared/img/utility/line_dot_black_orange_h.gif") right top repeat-y;
+}
+
+div#contact_office div ul li.tel div h3 {
+	margin-bottom:   20px;
+}
+
+div#contact_office div ul li.tel div img {
+	display:         block;
+	margin:          0 0 0 20px;
+}
+
+div#contact_office div ul li.form div h3 {
+	margin-bottom:   25px;
+}
+
+div#contact_office div ul li.form div p {
+	text-align:      center;
+	margin:          45px 0 0 0;
+}
+
+/** clearfix */
+/**************************************/
+div#proposal:after,
+div#proposal div#plans div.pl div.links ul:after,
+div#contact_office div ul:after
+{
+	content:         ".";
+	height:          0;
+	clear:           both;
+	visibility:      hidden;
+	display:         block;
+}
+
+div#proposal,
+div#proposal div#plans div.pl div.links ul,
+div#contact_office div ul
+{
+	display:         inline-block;
+}
+
+/*\*/
+* html div#proposal,
+* html div#proposal div#plans div.pl div.links ul,
+* html div#contact_office div ul
+{
+	height:          1%;
+}
+
+div#proposal,
+div#proposal div#plans div.pl div.links ul,
+div#contact_office div ul
+{
+	display:         block;
+}
+
+
+@media only screen and (max-width:  767px) {
+	div#proposal div#plans div.pl.trunk-lm div.detail {
+    background: none; 
+}
+div#proposal div#plans div.pl.trunk-l div.detail {
+    background: none; 
+}
+div#proposal div#plans div.pl.trunk-m div.detail {
+    background: none; 
+}
+div#proposal div#plans div.pl.trunk-s div.detail {
+    background: none; 
+}
+}
